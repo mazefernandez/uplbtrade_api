@@ -8,10 +8,10 @@ const connection = require(__dirname + '/db.js')
 const app = express()
 
 var routes = require(__dirname + '/routes/routes.js')
-
-app.use('/', routes)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
+
+app.use('/', routes)
 
 app.get('/', (req, res) => {
 	res.send('HELLO!') 
