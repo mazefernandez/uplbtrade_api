@@ -3,6 +3,32 @@
 const mysql = require('mysql')
 const connection = require(__dirname + '/../db.js')
 
+exports.getCustomers = (req,res) => {
+    connection.query('SELECT * FROM Customer', [], function(err, rows, fields) {
+	if (!err) {
+	    res.send(rows)
+	    console.log("Retrieved all customers")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in retrieving all customers " + err) 
+	}
+    })
+}
+
+exports.getCustomer = (req,res) => {
+    connection.query('SELECT * FROM Customer where customer_id =?', [req.params.id], function(err, rows, fields) {
+    	if (!err) {
+	    res.send(rows[0])
+	    console.log("Retrieved customer")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in retrieving customer " + err)
+	}
+    })
+}
+
 exports.addCustomer = (req,res) => {
     var customer = {
         first_name : req.body.first_name,
@@ -13,11 +39,11 @@ exports.addCustomer = (req,res) => {
 	if (!err) {
 	    customer.customer_id = rows.insertId
             res.send(customer)
-	    console.log("Added new Customer")
+	    console.log("Added new customer")
 	}
 	else {
-	    console.log("Error in adding new customer " + err)
 	    res.send(err)
+	    console.log("Error in adding new customer " + err)
 	}
     })
 }
