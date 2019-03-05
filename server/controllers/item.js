@@ -16,19 +16,6 @@ exports.getItems = (req,res) => {
     })
 }
 
-exports.getItemsFromCustomer = (req, res) => {
-    connection.query('SELECT * FROM Item where customer_id = ?', [req.params.id], function (err, rows, fields) {
-        if (!err) {
-	   res.send(rows)
-	   console.log("Retrieved all items from customer")
-	}
-	else {
-	    res.send(err)
-	    console.log("Error in retrieving all items from customer " + err)
-	}
-    })
-}
-
 exports.getItem = (req,res) => {
     connection.query('SELECT * FROM Item where item_id = ?', [req.params.id], function(err, rows, fields) {
 	if (!err) {

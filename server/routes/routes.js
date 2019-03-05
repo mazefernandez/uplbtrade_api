@@ -12,12 +12,13 @@ router.get('/api/customers/:id', customerCtrl.getCustomer)
 router.post('/api/customers', customerCtrl.addCustomer)
 router.put('/api/customers/:id', customerCtrl.updateCustomer)
 
+router.get('/api/customers/:id/items', customerCtrl.getCustomerItems)
+
 //routes for items
-router.get('api/items', itemCtrl.getItems)
-router.get('api/items/:id', itemCtrl.getItemsFromCustomer)
-router.get('api/items/:id', itemCtrl.getItem)
-router.post('api/items', itemCtrl.addItem)
-router.put('api/items/:id', itemCtrl.updateItem)
-router.delete('api/items/:id', itemCtrl.deleteItem)
+router.get('/api/items', itemCtrl.getItems)
+router.get('/api/items/:id', itemCtrl.getItem)
+router.post('/api/items', itemCtrl.addItem)
+router.put('/api/items/:id', itemCtrl.updateItem)
+router.delete('/api/items/:id', itemCtrl.deleteItem)
 
 module.exports = router;
