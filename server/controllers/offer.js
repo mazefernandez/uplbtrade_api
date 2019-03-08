@@ -1,7 +1,7 @@
 'use strict' 
 
 const mysql = require('mysql') 
-const connection = require(__dirname + '/../db.js'
+const connection = require(__dirname + '/../db.js')
 
 exports.getOffers = (req,res) => {
     connection.query('SELECT * FROM Offer', [], function (err, rows, fields) {
@@ -17,7 +17,7 @@ exports.getOffers = (req,res) => {
 }
 
 exports.getOffer = (req,res) => {
-    connection.query('SELECT * FROM Offer where offer_id = ?', [req.params.id], function(err, rows, fields {
+    connection.query('SELECT * FROM Offer where offer_id = ?', [req.params.id], function(err, rows, fields) {
     	if (!err) {
 	    res.send(rows[0])
 	    console.log("Retrieved offer")
@@ -61,5 +61,5 @@ exports.deleteOffer = (req,res) => {
 	    res.send(err)
 	    console.log("Error in deleting offer " + err) 
 	}
-    )}
+    })
 }
