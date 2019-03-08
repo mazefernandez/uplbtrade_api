@@ -29,6 +29,19 @@ exports.getCustomer = (req,res) => {
     })
 }
 
+exports.getCustomerByEmail = (req, res) => {
+    connection.query('SELECT * FROM Customer WHERE email = ?', [req.params.email], function(err,rows,fields) {
+	if (!err) {
+	    res.send(rows[0])
+	    console.log("Retrieved customer by email ")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error retrieving customer by email " + err)
+	}
+    })
+}
+
 exports.addCustomer = (req,res) => {
     var customer = {
         first_name : req.body.first_name,
@@ -62,6 +75,19 @@ exports.updateCustomer = (req,res) => {
         else {
 	    console.log("Error in updating customer " + err)
 	    res.send(err)
+	}
+    })
+}
+
+exports.getCustomerItems = (req,res) => {
+    connection.query('SELECT * FROM Item where customer_id = ?', [req.params.id], function(err, rows, fields) {
+	if (!err) {
+	    res.send(rows)
+	    console.log("Retrieved all items from customer")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in retrieving items from customer " + err)
 	}
     })
 }
