@@ -5,6 +5,7 @@ var router = express.Router()
 
 var customerCtrl = require('../controllers/customer.js')
 var itemCtrl = require('../controllers/item.js')
+var offerCtrl = require('../controllers/offer.js')
 
 //routes for customers
 router.get('/api/customers', customerCtrl.getCustomers)
@@ -21,5 +22,11 @@ router.get('/api/items/:id', itemCtrl.getItem)
 router.post('/api/items', itemCtrl.addItem)
 router.put('/api/items/:id', itemCtrl.updateItem)
 router.delete('/api/items/:id', itemCtrl.deleteItem)
+
+//routes for offers
+router.get('/api/offers', offerCtrl.getOffers)
+router.get('/api/offers/:id', offerCtrl.getOffer)
+router.post('/api/offers', offerCtrl.addOffer)
+router.delete('api/offers:id', offerCtrl.deleteOffer)
 
 module.exports = router;
