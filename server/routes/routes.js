@@ -9,6 +9,7 @@ var itemCtrl = require('../controllers/item.js')
 //routes for customers
 router.get('/api/customers', customerCtrl.getCustomers)
 router.get('/api/customers/:id', customerCtrl.getCustomer)
+router.get('/api/customers/search/:email', customerCtrl.getCustomerByEmail)
 router.post('/api/customers', customerCtrl.addCustomer)
 router.put('/api/customers/:id', customerCtrl.updateCustomer)
 
