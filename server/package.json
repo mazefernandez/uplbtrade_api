@@ -26,6 +26,13 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
-    "body-parser": "^1.18.3"
+    "body-parser": "^1.18.3",
+    "express": "^4.15.0",
+    "imagemin": "^5.2.2",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-pngquant": "^5.0.0",
+    "mysql": "^2.13.0",
+    "multer": "^1.3.0",
+    "shelljs": "^0.7.7"
   }
 }
