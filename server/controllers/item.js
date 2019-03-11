@@ -80,3 +80,15 @@ exports.deleteItem = (req,res) => {
     })
 }
 
+exports.searchItems = (req,res) => {
+    connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err,rows,fields) {
+        if (!err) {
+	    res.send(rows)
+	    console.log("Searched for items") 
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in searching for items")
+	}
+    })
+}

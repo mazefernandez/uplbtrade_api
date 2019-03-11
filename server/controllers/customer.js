@@ -91,3 +91,16 @@ exports.getCustomerItems = (req,res) => {
 	}
     })
 }
+
+exports.searchCustomerItems = (req, res) => {
+    connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err, rows, fields) {
+	if (!err) {
+	    res.send(rows) 
+	    console.log("Searched for items from customer")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in searching for items from customer " + err) 
+	}
+    })
+}
