@@ -65,7 +65,7 @@ exports.updateCustomer = (req,res) => {
     var customer = {
 	customer_id : req.params.id,
 	address : req.body.address, 
-	contact_no : req.body.contact_no, 
+	contact_no : req.body.contact_no
     }
     connection.query('UPDATE Customer SET address = ?, contact_no = ? where customer_id = ?', [req.body.address, req.body.contact_no, req.params.id], function(err, rows, fields) {
         if (!err) {
