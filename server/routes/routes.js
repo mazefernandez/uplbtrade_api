@@ -29,7 +29,7 @@ router.get('/api/items/search/:search', itemCtrl.searchItems)
 router.get('/api/offers', offerCtrl.getOffers)
 router.get('/api/offers/:id', offerCtrl.getOffer)
 router.post('/api/offers', offerCtrl.addOffer)
-router.delete('api/offers/:id', offerCtrl.deleteOffer)
+router.delete('/api/offers/:id', offerCtrl.deleteOffer)
 
 router.get('/api/offers/buyer/:id', offerCtrl.getOfferBuying)
 router.get('/api/offers/seller/:id', offerCtrl.getOfferSelling)
