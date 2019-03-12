@@ -65,7 +65,7 @@ exports.updateCustomer = (req,res) => {
     var customer = {
 	customer_id : req.params.id,
 	address : req.body.address, 
-	contact_no : req.body.contact_no, 
+	contact_no : req.body.contact_no
     }
     connection.query('UPDATE Customer SET address = ?, contact_no = ? where customer_id = ?', [req.body.address, req.body.contact_no, req.params.id], function(err, rows, fields) {
         if (!err) {
@@ -88,6 +88,19 @@ exports.getCustomerItems = (req,res) => {
 	else {
 	    res.send(err)
 	    console.log("Error in retrieving items from customer " + err)
+	}
+    })
+}
+
+exports.searchCustomerItems = (req, res) => {
+    connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err, rows, fields) {
+	if (!err) {
+	    res.send(rows) 
+	    console.log("Searched for items from customer")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in searching for items from customer " + err) 
 	}
     })
 }
