@@ -78,6 +78,38 @@ exports.addOffer = (req,res) => {
     }) 
 }	    
 
+exports.declineOffer = (req,res) => {
+    var offer = {
+	status : "Declined"
+    }
+    connection.query('UPDATE Offer SET status = ? where offer_id = ?', [offer.status,req.params.id], function(err, rows, fields) {
+	if (!err) {
+	    res.send(null)
+	    console.log("Offer declined") 
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in declining offer " + err)
+	}
+    }) 
+}
+
+exports.acceptOffer = (req,res) => {
+    var offer = {
+	status : "Accepted"
+    }
+    connection.query('UPDATE Offer SET status = ? where offer_id = ?', [offer.status,req.params.id], function(err, rows, fields) {
+        if (!err) {
+            res.send(null)
+            console.log("Offer accepted")
+        }
+        else {
+            res.send(err)
+            console.log("Error in accepting offer " + err)
+        }
+    })
+}
+
 exports.deleteOffer = (req,res) => {
     connection.query('DELETE FROM Offer WHERE offer_id = ?', [req.params.id], function(err, rows, fields) {
 	if (!err) {

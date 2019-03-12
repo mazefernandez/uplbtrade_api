@@ -34,4 +34,7 @@ router.delete('/api/offers/:id', offerCtrl.deleteOffer)
 router.get('/api/offers/buyer/:id', offerCtrl.getOfferBuying)
 router.get('/api/offers/seller/:id', offerCtrl.getOfferSelling)
 
+router.put('/api/offers/accept/:id', offerCtrl.acceptOffer)
+router.put('/api/offers/decline/:id', offerCtrl.declineOffer)
+
 module.exports = router;
