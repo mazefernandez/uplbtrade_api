@@ -55,7 +55,7 @@ exports.updateItem = (req,res) => {
 	image : (typeof req.file != 'undefined') ? req.file.path.substring(req.file.path.indexOf('/../../images')).replace('images','') : req.body.image,
 	condition : req.body.condition
     }
-    connection.query('UPDATE Item SET name = ?, description = ?, price = ?, image = ?, condition = ? where item_id = ?', [req.body.name, req.body.description, req.body.price, req.body.image, req.body.condition, req.params.id], function(err, rows, fields) {
+    connection.query('UPDATE Item SET name = ?, description = ?, price = ?, image = ?, `condition` = ? WHERE item_id = ?', [req.body.name, req.body.description, req.body.price, req.body.image, req.body.condition, req.params.id], function(err, rows, fields) {
         if (!err) {
 	    res.send(item)
 	    console.log("Updated item")
