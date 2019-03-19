@@ -1,0 +1,216 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ec2-user/.nvm/versions/node/v4.4.5/bin/node',
+1 verbose cli   '/home/ec2-user/.nvm/versions/node/v4.4.5/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'node' ]
+2 info using npm@2.15.5
+3 info using node@v4.4.5
+4 verbose install initial load of /home/ec2-user/uplbtrade_api/server/package.json
+5 warn package.json uplbtradeapi@1.0.0 No description
+6 warn package.json uplbtradeapi@1.0.0 No README data
+7 verbose installManyTop reading scoped package data from /home/ec2-user/uplbtrade_api/server/node_modules/babel-cli/package.json
+8 verbose installManyTop reading scoped package data from /home/ec2-user/uplbtrade_api/server/node_modules/babel-preset-es2015/package.json
+9 verbose installManyTop reading scoped package data from /home/ec2-user/uplbtrade_api/server/node_modules/body-parser/package.json
+10 verbose installManyTop reading scoped package data from /home/ec2-user/uplbtrade_api/server/node_modules/express/package.json
+11 verbose installManyTop reading scoped package data from /home/ec2-user/uplbtrade_api/server/node_modules/mysql/package.json
+12 verbose installManyTop reading scoped package data from /home/ec2-user/uplbtrade_api/server/node_modules/nodemon/package.json
+13 verbose readDependencies loading dependencies from /home/ec2-user/uplbtrade_api/server/package.json
+14 silly cache add args [ 'node', null ]
+15 verbose cache add spec node
+16 silly cache add parsed spec Result {
+16 silly cache add   raw: 'node',
+16 silly cache add   scope: null,
+16 silly cache add   name: 'node',
+16 silly cache add   rawSpec: '',
+16 silly cache add   spec: 'latest',
+16 silly cache add   type: 'tag' }
+17 silly addNamed node@latest
+18 verbose addNamed "latest" is being treated as a dist-tag for node
+19 info addNameTag [ 'node', 'latest' ]
+20 silly mapToRegistry name node
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'node',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   name: 'node',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri https://registry.npmjs.org/node
+25 verbose addNameTag registry:https://registry.npmjs.org/node not in flight; fetching
+26 verbose request uri https://registry.npmjs.org/node
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 6:55:29 AM
+29 verbose request id 9eba78f66bf9643b
+30 http request GET https://registry.npmjs.org/node
+31 http 200 https://registry.npmjs.org/node
+32 verbose headers { date: 'Wed, 13 Mar 2019 06:55:30 GMT',
+32 verbose headers   'content-type': 'application/json',
+32 verbose headers   'transfer-encoding': 'chunked',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'set-cookie': [ '__cfduid=d55b14e1900406e036bc1db43598e479a1552460129; expires=Thu, 12-Mar-20 06:55:29 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+32 verbose headers   'cf-cache-status': 'REVALIDATED',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   'cf-ray': '4b6c1a3fa829701a-SIN',
+32 verbose headers   etag: 'W/"60f90c5a58741df8460f3a17464da368"',
+32 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+32 verbose headers   'last-modified': 'Thu, 07 Mar 2019 04:05:36 GMT',
+32 verbose headers   vary: 'accept-encoding, accept',
+32 verbose headers   'x-amz-meta-rev': '467-ddb5101e648337d0c5b3df14bc51206c',
+32 verbose headers   server: 'cloudflare',
+32 verbose headers   'content-encoding': 'gzip' }
+33 silly get cb [ 200,
+33 silly get   { date: 'Wed, 13 Mar 2019 06:55:30 GMT',
+33 silly get     'content-type': 'application/json',
+33 silly get     'transfer-encoding': 'chunked',
+33 silly get     connection: 'keep-alive',
+33 silly get     'set-cookie': [ '__cfduid=d55b14e1900406e036bc1db43598e479a1552460129; expires=Thu, 12-Mar-20 06:55:29 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+33 silly get     'cf-cache-status': 'REVALIDATED',
+33 silly get     'cache-control': 'max-age=300',
+33 silly get     'cf-ray': '4b6c1a3fa829701a-SIN',
+33 silly get     etag: 'W/"60f90c5a58741df8460f3a17464da368"',
+33 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+33 silly get     'last-modified': 'Thu, 07 Mar 2019 04:05:36 GMT',
+33 silly get     vary: 'accept-encoding, accept',
+33 silly get     'x-amz-meta-rev': '467-ddb5101e648337d0c5b3df14bc51206c',
+33 silly get     server: 'cloudflare',
+33 silly get     'content-encoding': 'gzip' } ]
+34 verbose get saving node to /home/ec2-user/.npm/registry.npmjs.org/node/.cache.json
+35 verbose correctMkdir /home/ec2-user/.npm correctMkdir not in flight; initializing
+36 silly addNameTag next cb for node with tag latest
+37 silly addNamed node@11.11.0
+38 verbose addNamed "11.11.0" is a plain semver version for node
+39 silly mapToRegistry name node
+40 silly mapToRegistry using default registry
+41 silly mapToRegistry registry https://registry.npmjs.org/
+42 silly mapToRegistry data Result {
+42 silly mapToRegistry   raw: 'node',
+42 silly mapToRegistry   scope: null,
+42 silly mapToRegistry   name: 'node',
+42 silly mapToRegistry   rawSpec: '',
+42 silly mapToRegistry   spec: 'latest',
+42 silly mapToRegistry   type: 'tag' }
+43 silly mapToRegistry uri https://registry.npmjs.org/node
+44 verbose addRemoteTarball https://registry.npmjs.org/node/-/node-11.11.0.tgz not in flight; adding
+45 verbose addRemoteTarball [ 'https://registry.npmjs.org/node/-/node-11.11.0.tgz',
+45 verbose addRemoteTarball   '0e4ac4cb52843e651fc3ca6eaf73e8fdf07532c8' ]
+46 info retry fetch attempt 1 at 6:55:30 AM
+47 info attempt registry request try #1 at 6:55:30 AM
+48 http fetch GET https://registry.npmjs.org/node/-/node-11.11.0.tgz
+49 http fetch 200 https://registry.npmjs.org/node/-/node-11.11.0.tgz
+50 silly fetchAndShaCheck shasum 0e4ac4cb52843e651fc3ca6eaf73e8fdf07532c8
+51 verbose addTmpTarball /tmp/npm-12495-e5b636d8/registry.npmjs.org/node/-/node-11.11.0.tgz not in flight; adding
+52 verbose addTmpTarball already have metadata; skipping unpack for node@11.11.0
+53 verbose correctMkdir /home/ec2-user/.npm correctMkdir not in flight; initializing
+54 silly cache afterAdd node@11.11.0
+55 verbose afterAdd /home/ec2-user/.npm/node/11.11.0/package/package.json not in flight; writing
+56 verbose correctMkdir /home/ec2-user/.npm correctMkdir not in flight; initializing
+57 verbose afterAdd /home/ec2-user/.npm/node/11.11.0/package/package.json written
+58 silly install resolved [ { name: 'node',
+58 silly install resolved     version: '11.11.0',
+58 silly install resolved     description: 'node',
+58 silly install resolved     main: 'index.js',
+58 silly install resolved     keywords: [ 'runtime' ],
+58 silly install resolved     repository:
+58 silly install resolved      { type: 'git',
+58 silly install resolved        url: 'git+https://github.com/aredridel/node-bin-gen.git' },
+58 silly install resolved     scripts: { preinstall: 'node installArchSpecificPackage' },
+58 silly install resolved     bin: { node: 'bin/node' },
+58 silly install resolved     dependencies: { 'node-bin-setup': '^1.0.0' },
+58 silly install resolved     license: 'ISC',
+58 silly install resolved     author: '',
+58 silly install resolved     engines: { npm: '>=5.0.0' },
+58 silly install resolved     bugs: { url: 'https://github.com/aredridel/node-bin-gen/issues' },
+58 silly install resolved     homepage: 'https://github.com/aredridel/node-bin-gen#readme',
+58 silly install resolved     _id: 'node@11.11.0',
+58 silly install resolved     _nodeVersion: '11.7.0',
+58 silly install resolved     _npmVersion: '6.6.0',
+58 silly install resolved     _npmUser: { name: 'aredridel', email: 'aredridel@dinhe.net' },
+58 silly install resolved     dist:
+58 silly install resolved      { integrity: 'sha512-nlfsi4FhD1s0Q+B3CKmRICUlh3ppPNIGBmVS/HxFP36d71Xp9Ht0j2o3Jk39muvjvlc/suwmnJU2sWLe1tlPlQ==',
+58 silly install resolved        shasum: '0e4ac4cb52843e651fc3ca6eaf73e8fdf07532c8',
+58 silly install resolved        tarball: 'https://registry.npmjs.org/node/-/node-11.11.0.tgz',
+58 silly install resolved        fileCount: 3,
+58 silly install resolved        unpackedSize: 1477,
+58 silly install resolved        'npm-signature': '-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcgJiNCRA9TVsSAnZWagAAfEUP/0vfnvQYuvUkxXd6CZHa\ngR2Uy2upZTF8iLkJPuaEBYNj6xOyPWBfLl+hLCQGf242E7cYpBvhN2fP5WLZ\nWnY6Z71QsjFNSWbZhf/hqIXqcSpQKgQj/jcHiNb1GOQs+oJhY380GFFYHK+L\nHe/WWVkVs2J8LulYrHCmSzXNXnnDv+WF5GKKADXuwc9Y6NVx8MfUys0cyU9F\ng2joei3X7lTpaSbLkkSr6KZX7ck6TZxfRcR6r+5OD9zBqFsmbFMl0kK0m9pY\nkVVHCj98ywUYJFXxlxVlKYcpv3jezBizx68TFy62EWhQTm4g0hzBmf5qUbf+\n6R4B/u/cbXW5zCTXVSyFMksJnEIFoLmmIyXjtcziSUqLKq0iSunl3FmcidMD\nNT4yOtLpOOrcJK0dRCb32uIGViuIhR1L69o5O/c2jwS2i9PBk/Hes0xW0hQG\n58s8Xx7RFYT8nSnXqZqjAW8nP9EAkqe2Vwbtfo+Zk1dBAwB3GuscT3m7AhOQ\nKjrdPAnUMKpGEOle/u+VYwKq3walPdvI9iSDeejgqJTrE2wj9iP/LhBog5+X\nqinPQMr+z3v1hg0Bsd3S/QtkIR5GPfzLn29+Z9yRISp0H9mWd0MS2Bns9n+j\n6zkmpt4KBDFLMOKt/WJpEHN1F1UK5Fo2QKcT3jLDqmzOE6j12lR7hkomdjwI\nHRA1\r\n=Nixi\r\n-----END PGP SIGNATURE-----\r\n' },
+58 silly install resolved     maintainers: [ [Object], [Object] ],
+58 silly install resolved     directories: {},
+58 silly install resolved     _npmOperationalInternal:
+58 silly install resolved      { host: 's3://npm-registry-packages',
+58 silly install resolved        tmp: 'tmp/node_11.11.0_1551931532451_0.9852956810045119' },
+58 silly install resolved     _hasShrinkwrap: false,
+58 silly install resolved     _shasum: '0e4ac4cb52843e651fc3ca6eaf73e8fdf07532c8',
+58 silly install resolved     _resolved: 'https://registry.npmjs.org/node/-/node-11.11.0.tgz',
+58 silly install resolved     _from: 'node@latest' } ]
+59 info install node@11.11.0 into /home/ec2-user/uplbtrade_api/server
+60 info installOne node@11.11.0
+61 verbose installOne of node to /home/ec2-user/uplbtrade_api/server not in flight; installing
+62 verbose correctMkdir /home/ec2-user/.npm/_locks correctMkdir not in flight; initializing
+63 verbose lock using /home/ec2-user/.npm/_locks/node-7198a4ca0cefebc2.lock for /home/ec2-user/uplbtrade_api/server/node_modules/node
+64 warn engine node@11.11.0: wanted: {"npm":">=5.0.0"} (current: {"node":"4.4.5","npm":"2.15.5"})
+65 silly install write writing node 11.11.0 to /home/ec2-user/uplbtrade_api/server/node_modules/node
+66 verbose unbuild node_modules/node
+67 silly gentlyRm /home/ec2-user/uplbtrade_api/server/node_modules/node is being purged from base /home/ec2-user/uplbtrade_api/server
+68 verbose gentlyRm don't care about contents; nuking /home/ec2-user/uplbtrade_api/server/node_modules/node
+69 verbose tar unpack /home/ec2-user/.npm/node/11.11.0/package.tgz
+70 verbose tar unpacking to /home/ec2-user/uplbtrade_api/server/node_modules/node
+71 silly gentlyRm /home/ec2-user/uplbtrade_api/server/node_modules/node is being purged
+72 verbose gentlyRm don't care about contents; nuking /home/ec2-user/uplbtrade_api/server/node_modules/node
+73 silly gunzTarPerm modes [ '775', '664' ]
+74 silly gunzTarPerm extractEntry package.json
+75 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+76 silly gunzTarPerm extractEntry installArchSpecificPackage.js
+77 silly gunzTarPerm modified mode [ 'installArchSpecificPackage.js', 420, 436 ]
+78 silly gunzTarPerm extractEntry README.md
+79 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+80 verbose write writing to /home/ec2-user/uplbtrade_api/server/node_modules/node/package.json
+81 info preinstall node@11.11.0
+82 verbose unsafe-perm in lifecycle true
+83 info node@11.11.0 Failed to exec preinstall script
+84 verbose unlock done using /home/ec2-user/.npm/_locks/node-7198a4ca0cefebc2.lock for /home/ec2-user/uplbtrade_api/server/node_modules/node
+85 verbose stack Error: node@11.11.0 preinstall: `node installArchSpecificPackage`
+85 verbose stack Exit status 1
+85 verbose stack     at EventEmitter.<anonymous> (/home/ec2-user/.nvm/versions/node/v4.4.5/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
+85 verbose stack     at emitTwo (events.js:87:13)
+85 verbose stack     at EventEmitter.emit (events.js:172:7)
+85 verbose stack     at ChildProcess.<anonymous> (/home/ec2-user/.nvm/versions/node/v4.4.5/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+85 verbose stack     at emitTwo (events.js:87:13)
+85 verbose stack     at ChildProcess.emit (events.js:172:7)
+85 verbose stack     at maybeClose (internal/child_process.js:827:16)
+85 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+86 verbose pkgid node@11.11.0
+87 verbose cwd /home/ec2-user/uplbtrade_api/server
+88 error Linux 4.14.97-74.72.amzn1.x86_64
+89 error argv "/home/ec2-user/.nvm/versions/node/v4.4.5/bin/node" "/home/ec2-user/.nvm/versions/node/v4.4.5/bin/npm" "install" "node"
+90 error node v4.4.5
+91 error npm  v2.15.5
+92 error code ELIFECYCLE
+93 error node@11.11.0 preinstall: `node installArchSpecificPackage`
+93 error Exit status 1
+94 error Failed at the node@11.11.0 preinstall script 'node installArchSpecificPackage'.
+94 error This is most likely a problem with the node package,
+94 error not with npm itself.
+94 error Tell the author that this fails on your system:
+94 error     node installArchSpecificPackage
+94 error You can get information on how to open an issue for this project with:
+94 error     npm bugs node
+94 error Or if that isn't available, you can get their info via:
+94 error
+94 error     npm owner ls node
+94 error There is likely additional logging output above.
+95 verbose exit [ 1, true ]
+96 verbose unbuild node_modules/node
+97 info preuninstall node@11.11.0
+98 info uninstall node@11.11.0
+99 verbose unbuild rmStuff node@11.11.0 from /home/ec2-user/uplbtrade_api/server/node_modules
+100 silly gentlyRm /home/ec2-user/uplbtrade_api/server/node_modules/.bin/node is being gently removed
+101 silly gentlyRm verifying /home/ec2-user/uplbtrade_api/server is an npm working directory
+102 silly gentlyRm containing path /home/ec2-user/uplbtrade_api/server is under npm's control, in /home/ec2-user/uplbtrade_api/server
+103 silly gentlyRm deletion target /home/ec2-user/uplbtrade_api/server/node_modules/.bin/node is under /home/ec2-user/uplbtrade_api/server
+104 verbose gentlyRm vacuuming from /home/ec2-user/uplbtrade_api/server/node_modules/.bin/node up to /home/ec2-user/uplbtrade_api/server
+105 info postuninstall node@11.11.0
+106 silly gentlyRm /home/ec2-user/uplbtrade_api/server/node_modules/node is being purged from base /home/ec2-user/uplbtrade_api/server
+107 verbose gentlyRm don't care about contents; nuking /home/ec2-user/uplbtrade_api/server/node_modules/node
+108 silly vacuum-fs purging /home/ec2-user/uplbtrade_api/server/node_modules/node
+109 silly vacuum-fs quitting because other entries in /home/ec2-user/uplbtrade_api/server/node_modules

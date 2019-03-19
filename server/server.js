@@ -7,6 +7,8 @@ const path = require('path')
 const connection = require(__dirname + '/db.js')
 const app = express()
 
+app.use(express.static(__dirname + '/../client'))
+
 var routes = require(__dirname + '/routes/routes.js')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 app.use('/', routes)
 
 app.get('/', (req, res) => {
-	res.send('HELLO!') 
+	res.sendFile(path.resolve('index.html')) 
 }) 
 
 var port = process.env.PORT || 8000
