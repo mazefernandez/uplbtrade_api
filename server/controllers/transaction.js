@@ -1,7 +1,7 @@
 'use strict'
 
 const mysql = require('mysql')
-const connection = require('connection')
+const connection = require(__dirname + '/../db.js')
 
 exports.getTransactions = (req, res) => {
 	connection.query('SELECT * FROM Transaction', [], function (err, rows, fields) {
