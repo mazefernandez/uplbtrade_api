@@ -4,7 +4,6 @@ var path = require('path')
 
 var imagemin = require('imagemin')
 var imageminMozJpeg = require('imagemin-mozjpeg')
-var imageminPngQuant = require('imagemin-pngquant')
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
