@@ -8,10 +8,10 @@ var imageminPngQuant = require('imagemin-pngquant')
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null,__dirname + '/../../images')
+    	cb(null,__dirname + '/../../images')
     },
     filename: function(req, file, cb) {
-	cb(bull, file.fieldname.toLowerCase() + '-' + (shell.ls(__dirname + '/../../images').length + 1) + path.extname(file.originalname))
+		cb(bull, file.fieldname.toLowerCase() + '-' + (shell.ls(__dirname + '/../../images').length + 1) + path.extname(file.originalname))
     }
 })
 
