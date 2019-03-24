@@ -8,6 +8,8 @@ var itemCtrl = require('../controllers/item.js')
 var offerCtrl = require('../controllers/offer.js')
 var transactionCtrl = require('../controllers/transaction.js')
 var uploadCtrl = require('../controllers/upload.js')
+var applicationReviewCtrl = require('../controllers/application_review.js')
+var customerReviewCtrl = require('../controllers/customer_review.js')
 
 //routes for customers
 router.get('/api/customers', customerCtrl.getCustomers)
@@ -45,4 +47,15 @@ router.get('/api/transactions', transactionCtrl.getTransactions)
 router.get('/api/transactions/:id', transactionCtrl.getTransaction)
 router.post('/api/transactions', transactionCtrl.addTransaction)
 
+//routes for application reviews 
+router.get('/api/application-reviews', applicationReviewCtrl.getApplicationReviews) 
+router.get('/api/application-reviews/:id', applicationReviewCtrl.getApplicationReview)
+router.delete('/api/application-reviews/:id', applicationReviewCtrl.deleteApplicationReview)
+
+//routes for customer reviews
+router.get('/api/customer-reviews', customerReviewCtrl.getCustomerReviews)
+router.get('/api/customer-reviews/:id', customerReviewCtrl.getCustomerReview)
+router.delete('/api/customer-reviews/:id', customerReviewCtrl.deleteCustomerReview)
+
+router.get('/api/customer-reviews/customer/:id', customerReviewCtrl.getSpecificCustomerReviews)
 module.exports = router;
