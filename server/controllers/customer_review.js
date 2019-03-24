@@ -44,7 +44,16 @@ exports.getSpecificCustomerReviews = (req, res) => {
 }
 
 exports.getRating = (req, res) => {
-	connection.query('')
+	connection.query('SELECT AVG(rating) FROM Customer_Review where customer_id = ?', [req.params.id], function(err, rows, fields) {
+		if (!err) {
+			res.send(rows[0])
+			console.log("Retrieved average customer rating")
+		}
+		else {
+			res.send(err)
+			console.log("Error in retrieving customer rating")
+		}
+	})
 }
 
 exports.deleteCustomerReview = (req, res) => {

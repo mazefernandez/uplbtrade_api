@@ -52,10 +52,14 @@ router.get('/api/application-reviews', applicationReviewCtrl.getApplicationRevie
 router.get('/api/application-reviews/:id', applicationReviewCtrl.getApplicationReview)
 router.delete('/api/application-reviews/:id', applicationReviewCtrl.deleteApplicationReview)
 
+router.get('/api/application-reviews/rating', applicationReviewCtrl.getRating)
+
 //routes for customer reviews
 router.get('/api/customer-reviews', customerReviewCtrl.getCustomerReviews)
 router.get('/api/customer-reviews/:id', customerReviewCtrl.getCustomerReview)
 router.delete('/api/customer-reviews/:id', customerReviewCtrl.deleteCustomerReview)
 
 router.get('/api/customer-reviews/customer/:id', customerReviewCtrl.getSpecificCustomerReviews)
+router.get('/api/customer-reviews/rating/:id', applicationReviewCtrl.getRating)
+
 module.exports = router;
