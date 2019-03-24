@@ -1,7 +1,7 @@
 'use strict'
 
-var mysql = require('mysql')
-var connection = require(__dirname + '/..db.js/')
+const mysql = require('mysql')
+const connection = require(__dirname + '/../db.js')
 
 exports.getCustomerReviews = (req, res) => {
 	connection.query('SELECT * FROM Customer_Review', [], function(err, rows, fields) {
