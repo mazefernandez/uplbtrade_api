@@ -10,7 +10,7 @@ const app = express()
 app.use(express.static(__dirname + '/../client'))
 
 var routes = require(__dirname + '/routes/routes.js')
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit:'10mb', extended:true}))
 app.use(bodyParser.urlencoded({ extended: true}))
 
 app.use('/', routes)

@@ -10,7 +10,7 @@ var storage = multer.diskStorage({
     	cb(null,__dirname + '/../../client/images')
     },
     filename: function(req, file, cb) {
-		cb(bull, file.fieldname.toLowerCase() + '-' + (shell.ls(__dirname + '/../../client/images').length + 1) + path.extname(file.originalname))
+		cb(null, file.fieldname.toLowerCase() + '-' + (shell.ls(__dirname + '/../../client/images').length + 1) + path.extname(file.originalname))
     }
 })
 
