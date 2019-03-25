@@ -11,19 +11,42 @@
   </head>
   <body>
   	<div class="ui five item menu">
-  		<div class="header item">UPLB Trade</div>
-  		<a class="active item">Application Reviews</a>
-  		<a class="item">Messages</a>
-  		<a class="item">Customer Reports</a>
-  		<a class="item">Transaction Log</a> 
+	  <div class="header item">UPLB Trade</div>
+	  <a class="active item"> <i class="star icon"></i>Application Reviews</a>
+	  <a class="item"> <i class="envelope icon"></i>Messages</a>
+	  <a class="item"> <i class="exclamation triangle icon"></i>Customer Reports</a>
+	  <a class="item"> <i class="history icon"> </i>Transaction Log</a>	
+	</div>
+	<div class="ui container">
+	  <div class="ui search">
+   	    <div class="ui icon input">
+    	      <input class="prompt" type="text" placeholder="Application Reviews...">
+    	        <i class="search icon"></i>
+ 	    </div>
+  	    <div class="results"></div>
+	  </div>
+	  <div class="ui divider"> </div>
+	  <div class="ui cards">
+  	    <div class="card">
+   	      <div class="content">
+     	        <img class="right floated mini ui image" src="placeholder">
+      	        <div class="header">Customer Name</div>
+		<div class="ui rating" data-rating="4" data-max-rating="5"></div>
+     	        <div class="description">
+       		  This application is really good
+      		</div>
+    	      </div>
+ 	    </div>
+ 	    <div class="card">
+              <div class="content">
+                <img class="right floated mini ui image" src="placeholder">
+                <div class="header">Customer Name</div>
+		<div class="ui rating" data-rating="3" data-max-rating="5"></div>
+                <div class="description">
+                  This application is really good
+                </div>
+              </div>
+            </div>
 	</div>
   </body>
-  <script type="text/javascript">
-  	$(document).ready(function(){
-	    $('.ui .item').on('click', function() {
-	        $('.ui .item').removeClass('active');
-	        $(this).addClass('active');
-	    });             
-	});
-  </script>
 </html>
