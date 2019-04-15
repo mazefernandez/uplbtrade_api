@@ -53,7 +53,8 @@ exports.addItem = (req,res) => {
 
 exports.updateItem = (req,res) => {
     var item = {
-		name : req.body.name,
+	        item_id : req.body.item_id,
+	        name : req.body.name,
 		description : req.body.description,
 		price : req.body.price,
 		image : (typeof req.file != 'undefined') ? req.file.path.substring(req.file.path.indexOf('images/')).replace('images','') : req.body.image,

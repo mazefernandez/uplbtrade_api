@@ -3,7 +3,7 @@ var shell = require('shelljs')
 var path = require('path')
 
 var imagemin = require('imagemin')
-var imageminMozJpeg = require('imagemin-mozjpeg')
+var mozjpeg = require('imagemin-mozjpeg')
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -14,7 +14,10 @@ var storage = multer.diskStorage({
     }
 })
 
-var upload = multer({ storage: storage })
+var upload = multer({ 
+	storage: storage,
+	limits: { fieldSize: 25 * 1024 * 1024}
+})
 
 exports.upload = (function(req, res, next) {
     return multer({ storage: storage })
