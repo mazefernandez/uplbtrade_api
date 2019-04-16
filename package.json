@@ -25,11 +25,6 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
-    "angular": "^1.7.8",
-    "angular-animate": "^1.7.8",
-    "angular-aria": "^1.7.8",
-    "angular-material": "^1.1.18",
-    "angular-messages": "^1.7.8",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "imagemin": "^5.2.2",

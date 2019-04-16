@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
 	res.sendFile(path.resolve('index.html')) 
 }) 
 
+app.get('/*', (req, res) => {
+	res.sendFile(path.resolve('index.html')) 
+}) 
+
 var port = process.env.PORT || 8000
 
 app.listen(port, () => console.log('Server running on port ' + port))
