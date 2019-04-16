@@ -14,9 +14,9 @@
     <div ng-controller="indexCtrl" ng-cloak ng-view>
       <md-content class="md-padding">
         <md-nav-bar nav-bar-aria-label="navigation links">
-          <md-nav-item md-nav-href="reviews" name="reviews">App Reviews</md-nav-item>
+          <md-nav-item md-nav-href="index" name="reviews">App Reviews</md-nav-item>
           <md-nav-item md-nav-href="reports" name="reports">User Reports</md-nav-item>
-          <md-nav-item md-nav-href="history" name="history">Transaction History</md-nav-item>
+          <md-nav-item md-nav-href="transaction-logs" name="history">Transaction History</md-nav-item>
           <md-nav-item md-nav-href="database" name="database">Database</md-nav-item>
         </md-nav-bar>
       </md-content>
@@ -29,6 +29,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script type="text/javascript">
+      angular.module('admin',['ngMaterial'])
+	         .run(function() {
+	             console.log("application ready")
+	    });
+    </script>
     <script type="text/javascript" src="controllers/indexCtrl.js"></script>
   </body>
 </html>
