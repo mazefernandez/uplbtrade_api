@@ -7,7 +7,8 @@ const path = require('path')
 const connection = require(__dirname + '/db.js')
 const app = express()
 
-app.use(express.static(__dirname + '/../client'))
+app.use(express.static(path.join(__dirname + '/../client')))
+app.use(express.static(path.join(__dirname, '/../node_modules')))
 
 var routes = require(__dirname + '/routes/routes.js')
 app.use(bodyParser.json({limit:'10mb', extended:true}))
