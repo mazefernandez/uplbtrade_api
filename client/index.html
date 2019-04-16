@@ -13,7 +13,7 @@
           <a href="#" class="brand-logo right">UPLB Trade Admin</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="index.html">App Reviews</a></li>
-            <li><a href="nessages.html">Messages</a></li>
+            <li><a href="messages.html">Messages</a></li>
             <li><a href="reports.html">User Reports</a></li>
             <li><a href="transaction-logs.html">Transaction History</a></li>
             <li><a href="database.html">Database</a></li>
@@ -22,16 +22,9 @@
       </nav>    
     </div>
 
-    <!-- App Reviews -->
-    <ul class="collection">
-      <li class="collection-item avatar">
-        <img src="images/yuna.jpg" alt="" class="circle">
-        <span class="name">Customer Name</span>
-        <p>Customer Application Review
-        </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-      </li>
-    </ul>
+    <!-- content -->
+    <div ng-view></div>
+    
     <!-- Angular.js Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
