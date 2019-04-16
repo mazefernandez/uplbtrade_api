@@ -2,59 +2,25 @@
   <head> 
     <meta charset="utf-8">
     <title> UPLB Trade Admin </title>
-    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
-    <script
-	    src="https://code.jquery.com/jquery-3.1.1.min.js"
-		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-		crossorigin="anonymous"></script>
-    <script src="/semantic/dist/semantic.min.js"></script> 
-    <script type="text/javascript" src="app-review.js"></script>
+    <!-- Angular Material -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">   
   </head>
-  <body>
-  	<div class="ui five item menu">
-	  <div class="header item">UPLB Trade</div>
-	  <a class="active item"> <i class="star icon"></i>Application Reviews</a>
-	  <a class="item"> <i class="envelope icon"></i>Messages</a>
-	  <a href="reports.html" class="item"> <i class="exclamation triangle icon"></i>Customer Reports</a>
-	  <a href="transaction-logs.html" class="item"> <i class="history icon"> </i>Transaction Logs</a>
-	</div>
-	<div class="ui container">
-	  <div class="ui search">
-   	    <div class="ui icon input">
-    	    <input class="prompt" type="text" placeholder="Application Reviews...">
-    	    <i class="search icon"></i>
- 	    </div>
-  	    <div class="results"></div>
-	  </div>
-	  <div class="ui divider"> </div>
-	  <div class="ui cards">
-  	    <div class="card">
-   	      <div class="content">
-     	    <img class="right floated mini ui image" src="placeholder">
-      	    <div class="header">Customer Name</div>
-		    <div class="ui rating" data-rating="4" data-max-rating="5"></div>
-     	    <div class="description">
-       		  This application is really good
-            </div>
-    	  </div>
-    	  <div class="extra content">
-            <div class="ui basic green button">Message Customer</div>
-          </div>
- 	    </div>
- 	    <div class="card">
-          <div class="content">
-            <img class="right floated mini ui image" src="placeholder">
-            <div class="header">Customer Name</div>
-		    <div class="ui rating" data-rating="3" data-max-rating="5"></div>
-            <div class="description">
-              This application is really good
-            </div>
-          </div>
-          <div class="extra content">
-            <div class="ui green button">Message Customer</div>
-          </div>
-        </div>
-	  </div>
-    </div>
+  <body ng-app="admin">
+    <md-toolbar>
+      <h2>UPLB Trade Admin Panel</h2>
+    </md>
+    <!-- Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+    
+    <script type="text/javascript">
+      angular.module('admin',['ngMaterial'])
+	.run(function() {
+	  console.log('application ready');
+	});
+    </script>
   </body>
 </html>
