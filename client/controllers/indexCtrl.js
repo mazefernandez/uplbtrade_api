@@ -9,7 +9,7 @@ admin.config(['$routeProvider', function ($routeProvider) {
 		templateUrl : '../index.html',
 		controller : 'indexCtrl'
 	}).when('/reviews', {
-		templateUrl : '../index.html',
+		templateUrl : '../reviews.html',
 		controller : 'indexCtrl'
 	}).when('/reports', {
 		templateUrl : '../reports.html',
