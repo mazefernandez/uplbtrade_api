@@ -6,21 +6,14 @@ admin.controller('indexCtrl', function($scope) {
 
 admin.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.when('/', {
-		templateUrl : '../index.html',
-		controller : 'indexCtrl'
+		templateUrl : '../reviews.html'
 	}).when('/reviews', {
-		templateUrl : '../reviews.html',
-		controller : 'indexCtrl'
+		templateUrl : '../reviews.html'
 	}).when('/reports', {
-		templateUrl : '../reports.html',
-		controller : 'indexCtrl'
+		templateUrl : '../reports.html'
 	}).when('/history', {
-		templateUrl : '../transacion-logs.html',
-		controller : 'indexCtrl'
+		templateUrl : '../transacion-logs.html'
 	}).when('/database', {
-		templateUrl : '../database.html',
-		controller : 'indexCtrl'
-	}).otherwise({
-		redirectTo : '../index.html'
+		templateUrl : '../database.html'
 	});
 }]);

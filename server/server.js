@@ -19,6 +19,13 @@ app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname + '/../client/index.html')) 
 })
 
+app.get('/angular.min.js', (req, res) => {
+	res.sendFile(path.resolve(__dirname + '/../node_modules/angular/angular.min.js'))
+})
+app.get('/angular-route.min.js', (req, res) => {
+	res.sendFile(path.resolve(__dirname + '/../node_modules/angular-route/angular-route.min.js'))
+})
+
 var port = process.env.PORT || 8000
 
 app.listen(port, () => console.log('Server running on port ' + port))

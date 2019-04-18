@@ -2,10 +2,11 @@
   <head> 
     <meta charset="utf-8">
     <title> UPLB Trade Admin </title>
+    <base href="http://ec2-13-229-64-199.ap-southeast-1.compute.amazonaws.com:8000">
     <link rel="stylesheet" type="text/css" href="frontend_modules/css/index.css">
     <link rel="stylesheet" type="text/css" href="frontend_modules/materialize/css/materialize.min.css"/>
   </head>
-  <body ng-controller="indexCtrl">
+  <body>
     <!-- nav bar -->
     <div>
       <nav>
@@ -26,8 +27,8 @@
     <div ng-view></div>
     
     <!-- Angular.js Libraries -->
-    <script src="../node_modules/angular/angular.min.js"></script>
-    <script src="../node_modules/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/angular.min.js"></script>
+    <script type="text/javascript" src="/angular-route.min.js"></script>
     <script type="text/javascript" src="controllers/indexCtrl.js"></script>
   </body>
 </html>
