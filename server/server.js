@@ -20,10 +20,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/angular.min.js', (req, res) => {
-	res.sendFile(path.resolve(__dirname + '/../node_modules/angular/angular.min.js'))
+	res.sendFile(path.resolve(__dirname + '/../node_modules/angular/angular.js'))
 })
 app.get('/angular-route.min.js', (req, res) => {
-	res.sendFile(path.resolve(__dirname + '/../node_modules/angular-route/angular-route.min.js'))
+	res.sendFile(path.resolve(__dirname + '/../node_modules/angular-route/angular-route.js'))
 })
 
 var port = process.env.PORT || 8000
