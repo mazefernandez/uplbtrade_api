@@ -46,13 +46,13 @@ exports.addApplicationReview = (req, res) => {
 	var app_review = {
 		rating : req.body.rating,
 		review : req.body.review,
-		date : new Date().toLocaleString();
+		date : new Date().toLocaleString(),
 		customer_id : req.body.customer_id
 	}
 	connection.query('INSERT INTO Application_Review SET ?', app_review, function(err, rows, fields) {
 		if (!err) {
 			app_review.review_id = rows.insertId;
-			res.send(rows)
+			res.send(rows[0])
 			console.log("Retrieved application reviews")
 		}
 		else {
