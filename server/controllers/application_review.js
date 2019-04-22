@@ -37,9 +37,29 @@ exports.getRating = (req, res) => {
 		}
 		else {
 			res.send(err)
-			console.log("Error in retrieving application rating")
+			console.log("Error in retrieving application rating " + err)
 		}
 	})
+}
+
+exports.addApplicationReview = (req, res) => {
+	var app_review = {
+		rating : req.body.rating,
+		review : req.body.review,
+		date : req.body.date,
+		customer_id : req.body.customer_id
+	}
+	connection.query('INSERT INTO Application_Review SET ?', app_review, function(err, rows, fields) {
+		if (!err) {
+			app_review.review_id = rows.insertId;
+			res.send(rows)
+			console.log("Retrieved application reviews")
+		}
+		else {
+			res.send(err)
+			console.log("Error in retrieving application reviews " + err)
+		}
+	});
 }
 
 exports.deleteApplicationReview = (req, res) => {
