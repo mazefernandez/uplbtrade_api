@@ -2,18 +2,29 @@ var admin = angular.module('admin', ['ngRoute']);
 
 
 admin.controller('indexCtrl', function($scope) {
+
 });
 
 admin.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.when('/', {
-		templateUrl : '../reviews.html'
+		templateUrl : '../html/reviews.html',
+		controller : 'reviewCtrl'
 	}).when('/reviews', {
-		templateUrl : '../reviews.html'
+		templateUrl : '../html/reviews.html',
+		controller : 'reviewCtrl'
+	}).when('/messages', {
+		templateUrl : '../html/messages.html',
+		controller : 'messageCtrl'
 	}).when('/reports', {
-		templateUrl : '../reports.html'
+		templateUrl : '../html/reports.html',
+		controller : 'reportCtrl'
 	}).when('/history', {
-		templateUrl : '../transacion-logs.html'
+		templateUrl : '../html/transaction-logs.html', 
+		controller : 'historyCtrl'
 	}).when('/database', {
-		templateUrl : '../database.html'
+		templateUrl : '../html/database.html',
+		controller : 'databaseCtrl'
+	}).otherwise({
+		redirectTo : '/reviews'
 	});
 }]);
