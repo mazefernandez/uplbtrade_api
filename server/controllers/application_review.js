@@ -46,7 +46,7 @@ exports.addApplicationReview = (req, res) => {
 	var app_review = {
 		rating : req.body.rating,
 		review : req.body.review,
-		date : new Date().toLocaleString(),
+		date : require('moment')().format('YYYY-MM-DD HH:mm:ss'),
 		customer_id : req.body.customer_id
 	}
 	connection.query('INSERT INTO Application_Review SET ?', app_review, function(err, rows, fields) {
