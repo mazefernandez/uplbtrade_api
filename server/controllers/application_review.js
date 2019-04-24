@@ -53,7 +53,7 @@ exports.addApplicationReview = (req, res) => {
 		if (!err) {
 			app_review.review_id = rows.insertId;
 			res.send(rows[0])
-			console.log("Retrieved application reviews")
+			console.log("add application review")
 		}
 		else {
 			res.send(err)
@@ -75,3 +75,15 @@ exports.deleteApplicationReview = (req, res) => {
 	})
 }
 
+exports.getReviewCustomers = (req,res) => {
+	connection.query('SELECT * FROM Application_Review, Customer where Application_Review.customer_id = Customer.customer_id', [], function(err, rows, fields) {
+		if (!err) {
+			res.send(rows);
+			console.log("admin retrieve app reviews")
+		}
+		else {
+			res.send(err)
+			console.log("error in admin retrieve app reviews")
+		}
+	})
+}

@@ -12,8 +12,8 @@ var applicationReviewCtrl = require('../controllers/application_review.js')
 var customerReviewCtrl = require('../controllers/customer_review.js')
 
 //routes for customers
-router.get('/api/customers', customerCtrl.getCustomers)
 router.get('/api/customers/:id', customerCtrl.getCustomer)
+router.get('/api/customers', customerCtrl.getCustomers)
 router.get('/api/customers/email/:email', customerCtrl.getCustomerByEmail)
 router.post('/api/customers', customerCtrl.addCustomer)
 router.put('/api/customers/:id', customerCtrl.updateCustomer)
@@ -48,6 +48,8 @@ router.get('/api/transactions/:id', transactionCtrl.getTransaction)
 router.post('/api/transactions', transactionCtrl.addTransaction)
 
 //routes for application reviews 
+router.get('/api/application-reviews/customers', applicationReviewCtrl.getReviewCustomers)
+
 router.get('/api/application-reviews', applicationReviewCtrl.getApplicationReviews) 
 router.get('/api/application-reviews/:id', applicationReviewCtrl.getApplicationReview)
 router.post('/api/application-reviews',applicationReviewCtrl.addApplicationReview)
