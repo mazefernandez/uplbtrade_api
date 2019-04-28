@@ -6,7 +6,7 @@ admin.controller('reportCtrl', ['$scope', '$http', function($scope, $http) {
 		var retrieved = response.data; 
 		var reports = [];
 
-		retrieved.forEach((x) {
+		retrieved.forEach(function(x) {
 			var rep, cus;  
 
 			$http.get('/api/customers', {customer_id : x.reporter_id}).then(function(response) {
