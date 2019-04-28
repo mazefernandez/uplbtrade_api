@@ -10,6 +10,7 @@ var transactionCtrl = require('../controllers/transaction.js')
 var uploadCtrl = require('../controllers/upload.js')
 var applicationReviewCtrl = require('../controllers/application_review.js')
 var customerReviewCtrl = require('../controllers/customer_review.js')
+var customerReportCtrl = require('../controllers/customer_report.js')
 
 //routes for customers
 router.get('/api/customers/:id', customerCtrl.getCustomer)
@@ -64,5 +65,9 @@ router.delete('/api/customer-reviews/:id', customerReviewCtrl.deleteCustomerRevi
 
 router.get('/api/customer-reviews/customer/:id', customerReviewCtrl.getSpecificCustomerReviews)
 router.get('/api/customer-reviews/rating/:id', applicationReviewCtrl.getRating)
+
+//routes for customer reports 
+router.get('/api/customer-reports', customerReportCtrl.getCustomerReports)
+router.port('/api/customer_reports', customerReportCtrl.addCustomerReport)
 
 module.exports = router;
