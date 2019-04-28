@@ -24,7 +24,7 @@ admin.controller('reportCtrl', ['$scope', '$http', function($scope, $http) {
 			})	
 		})
 
-		scope.reports = reports; 
+		$scope.reports = reports; 
 		console.log(reports); 
 
 	})
