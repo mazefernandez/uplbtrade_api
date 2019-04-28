@@ -68,6 +68,6 @@ router.get('/api/customer-reviews/rating/:id', applicationReviewCtrl.getRating)
 
 //routes for customer reports 
 router.get('/api/customer-reports', customerReportCtrl.getCustomerReports)
-router.port('/api/customer_reports', customerReportCtrl.addCustomerReport)
+router.post('/api/customer_reports', customerReportCtrl.addCustomerReport)
 
 module.exports = router;
