@@ -1,12 +1,13 @@
 <div class="container">
   <!-- App Reports -->
   <ul id="reviews" class="collection">
-    <li class="collection-item" ng-repeat="review in reviews track by $index">
-      <span class="customer-name">{{review.first_name + " " + review.last_name}}</span> <br>
-      <span class="customer-email">{{review.email}}</span> <br>
-      <span class="customer-rating">Rating: {{review.rating + "/5"}}</span>
-      <p class="customer-review"> {{review.review}} </p>
-      <p>{{review.date | date : 'yyyy-MM-dd HH:mm:ss' : 'Asia/Manila'}}</p>
+    <li class="collection-item" ng-repeat="report in reports track by $index">
+      <span class="customer-name">{{report.reporter.first_name + " " + report.reporter.last_name}}</span> <br>
+      <span class="customer-email">{{report.reporter.email}}</span> <br>
+      <p class="customer-report"> {{report.message}} </p>
+      <p>{{report.date | date : 'yyyy-MM-dd HH:mm:ss' : 'Asia/Manila'}}</p>
+      <span class="customer-name">{{report.customer.first_name + " " + report.customer.last_name}}</span> <br>
+      <span class="customer-email">{{report.customer.email}}</span>
     </li>
   </ul>  
 </div>
