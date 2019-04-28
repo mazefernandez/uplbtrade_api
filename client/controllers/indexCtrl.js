@@ -1,7 +1,7 @@
 var admin = angular.module('admin', ['ngRoute']);
 
 
-admin.controller('indexCtrl', function($scope) {
+admin.controller('indexCtrl', function($scope, $location) {
 
 });
 
