@@ -17,7 +17,7 @@ admin.controller('reportCtrl', ['$scope', '$http', function($scope, $http) {
 				cus = response.data;
 			})
 
-			reports.add({
+			reports.push({
 				report : x, 
 				reporter : rep,
 				customer : cus
