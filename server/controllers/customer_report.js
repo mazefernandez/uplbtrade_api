@@ -3,7 +3,7 @@
 var mysql = require('mysql')
 var connection = require(__dirname + '/../db.js')
 
-exports.addCustomer_Report = (req, res) => {
+exports.addCustomerReport = (req, res) => {
 	var customer_report = {
 		message : req.body.message, 
 		date : req.body.date,
