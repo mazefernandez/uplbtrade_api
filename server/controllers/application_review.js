@@ -83,7 +83,33 @@ exports.getReviewCustomers = (req,res) => {
 		}
 		else {
 			res.send(err)
-			console.log("error in admin retrieve app reviews")
+			console.log("error in admin retrieve app reviews " + err)
+		}
+	})
+}
+
+exports.getCount = (req,res) => {
+	connection.query('SELECT count(rating) from Application_Review', [], function(err,rows,fields) {
+		if (!err) {
+			res.send(rows[0])
+			console.log("admin retrieve app review count") 
+		}
+		else {
+			res.send(err)
+			console.log("error in admin retrieve app review count " + err)
+		}
+	})
+}
+
+exports.getAverage = (req,res) => {
+	connection.query('SELECT round(avg(rating),2) from Application_Review', [], function(err,rows,fields) {
+		if (!err) {
+			res.send(rows[0])
+			console.log("admin retrieve app review average rating") 
+		} 
+		else {
+			res.send(err) 
+			console.log("error in admin retrieve app review average rating " + err)
 		}
 	})
 }

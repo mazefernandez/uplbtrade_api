@@ -1,7 +1,42 @@
 .nav-wrapper {
-	background-color: #3F00FF;
-	font-family: verdana;
+	background-color: #800000;
+	font-family: Roboto;
 }
 .filled {
 	color: gold;
+}
+
+#title-card {
+	background-color: #F16334;
+	font-family: Roboto;
+	color: #FBFCFD;
+	text-align: center;
+	vertical-align:middle;
+	padding-top: 3px;	
+	padding-bottom: 3px;
+}
+
+/* Review Styles */
+#review-summary {
+	background-color: #FBFCFD; 
+	font-family: Roboto;
+	text-align: center; 
+	vertical-align: middle;
+}
+
+#summary-title {
+	
+}
+
+.customer-name {
+	font-weight: bold;
+}
+
+.customer-review {
+
+}
+
+.review-date {
+	float: right;
+	color: grey;
 }

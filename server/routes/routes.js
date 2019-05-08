@@ -50,6 +50,8 @@ router.post('/api/transactions', transactionCtrl.addTransaction)
 
 //routes for application reviews 
 router.get('/api/application-reviews/customers', applicationReviewCtrl.getReviewCustomers)
+router.get('/api/application-reviews/count', applicationReviewCtrl.getCount)
+router.get('/api/application-reviews/average', applicationReviewCtrl.getAverage)
 
 router.get('/api/application-reviews', applicationReviewCtrl.getApplicationReviews) 
 router.get('/api/application-reviews/:id', applicationReviewCtrl.getApplicationReview)
