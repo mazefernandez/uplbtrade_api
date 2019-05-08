@@ -1,0 +1,25 @@
+<header id="title-card">Application Reviews</header>
+<div class="container">
+  <!-- App Reviews -->
+  <div class="row">
+    <ul id="reviews" class="collection col s6">
+      <li class="collection-item" ng-repeat="review in reviews track by $index">
+        <span class="customer-rating">Rating: {{review.rating + "/5"}}</span> <br>
+        <span class="customer-name">{{review.first_name + " " + review.last_name}}</span> 
+        <span class="review-date"> 
+  	  <i class="tiny material-icons">date_range</i>
+	  {{review.date | date : 'MMMM d, yyyy h:mm:ss a' : 'Asia/Manila'}}
+        </span>
+        <br>
+        <p class="customer-review"> {{review.review}} </p>
+      </li>
+    </ul> 
+    <div class="collection col s5 offset-s1">
+      <div class="collection-item" id="review-summary">
+        <span id="summary-title"> Average Rating out of {{count}} total reviews </span>
+        <hr>
+        <span id="summary-content">{{average}} out of 5 Stars</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -31,7 +31,6 @@ exports.getTransaction = (req, res) => {
 
 exports.addTransaction = (req, res) => {
 	var transaction = {
-		date : req.body.date,
 		item_id : req.body.item_id,
 		offer_id : req.body.offer_id,
 		seller_id : req.body.seller_id,

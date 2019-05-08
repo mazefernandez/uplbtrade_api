@@ -10,10 +10,11 @@ var transactionCtrl = require('../controllers/transaction.js')
 var uploadCtrl = require('../controllers/upload.js')
 var applicationReviewCtrl = require('../controllers/application_review.js')
 var customerReviewCtrl = require('../controllers/customer_review.js')
+var customerReportCtrl = require('../controllers/customer_report.js')
 
 //routes for customers
-router.get('/api/customers', customerCtrl.getCustomers)
 router.get('/api/customers/:id', customerCtrl.getCustomer)
+router.get('/api/customers', customerCtrl.getCustomers)
 router.get('/api/customers/email/:email', customerCtrl.getCustomerByEmail)
 router.post('/api/customers', customerCtrl.addCustomer)
 router.put('/api/customers/:id', customerCtrl.updateCustomer)
@@ -48,8 +49,13 @@ router.get('/api/transactions/:id', transactionCtrl.getTransaction)
 router.post('/api/transactions', transactionCtrl.addTransaction)
 
 //routes for application reviews 
+router.get('/api/application-reviews/customers', applicationReviewCtrl.getReviewCustomers)
+router.get('/api/application-reviews/count', applicationReviewCtrl.getCount)
+router.get('/api/application-reviews/average', applicationReviewCtrl.getAverage)
+
 router.get('/api/application-reviews', applicationReviewCtrl.getApplicationReviews) 
 router.get('/api/application-reviews/:id', applicationReviewCtrl.getApplicationReview)
+router.post('/api/application-reviews',applicationReviewCtrl.addApplicationReview)
 router.delete('/api/application-reviews/:id', applicationReviewCtrl.deleteApplicationReview)
 
 router.get('/api/application-reviews/rating', applicationReviewCtrl.getRating)
@@ -61,5 +67,9 @@ router.delete('/api/customer-reviews/:id', customerReviewCtrl.deleteCustomerRevi
 
 router.get('/api/customer-reviews/customer/:id', customerReviewCtrl.getSpecificCustomerReviews)
 router.get('/api/customer-reviews/rating/:id', applicationReviewCtrl.getRating)
+
+//routes for customer reports 
+router.get('/api/customer-reports', customerReportCtrl.getCustomerReports)
+router.post('/api/customer-reports', customerReportCtrl.addCustomerReport)
 
 module.exports = router;

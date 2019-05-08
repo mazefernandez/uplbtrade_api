@@ -1,15 +1,40 @@
-<html>
+<html ng-app="admin">
   <head> 
     <meta charset="utf-8">
     <title> UPLB Trade Admin </title>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <base href="http://ec2-13-229-64-199.ap-southeast-1.compute.amazonaws.com:8000">
+    <link rel="stylesheet" type="text/css" href="frontend_modules/css/index.css">
+    <link rel="stylesheet" type="text/css" href="frontend_modules/materialize/css/materialize.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-  	<h1> This works </h1>
+    <!-- nav bar -->
+    <div>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo right">UPLB Trade Admin</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+	    <li><a href="#!reviews">App Reviews</a></li>
+	    <li><a href="#!messages">Messages</a></li>
+	    <li><a href="#!reports">User Reports</a></li>
+	    <li ><a href="#!history">Transaction History</a></li>
+	    <li><a href="#!database">Database</a></li>
+          </ul>
+        </div>
+      </nav>    
+    </div>
+    <!-- content -->
+    <div ng-view></div>
+    
+    <!-- Angular.js Libraries -->
+    <script type="text/javascript" src="/angular.min.js"></script>
+    <script type="text/javascript" src="/angular-route.min.js"></script>
+    <script type="text/javascript" src="controllers/indexCtrl.js"></script>
+    <script type="text/javascript" src="controllers/reviewCtrl.js"></script>
+    <script type="text/javascript" src="controllers/reportCtrl.js"></script>
+    <script type="text/javascript" src="controllers/messageCtrl.js"></script>
+    <script type="text/javascript" src="controllers/historyCtrl.js"></script>
+    <script type="text/javascript" src="controllers/databaseCtrl.js"></script>
   </body>
-  <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	crossorigin="anonymous"></script>
-  <script src="semantic/dist/semantic.min.js"></script> 
 </html>
