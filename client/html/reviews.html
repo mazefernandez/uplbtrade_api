@@ -6,10 +6,12 @@
       <li class="collection-item" ng-repeat="review in reviews track by $index">
         <span class="customer-rating">Rating: {{review.rating + "/5"}}</span> <br>
         <span class="customer-name">{{review.first_name + " " + review.last_name}}</span> 
-        <span class="review-date"> 
+        <span class="date"> 
   	  <i class="tiny material-icons">date_range</i>
 	  {{review.date | date : 'MMMM d, yyyy h:mm:ss a' : 'Asia/Manila'}}
         </span>
+	<br>
+	<span class="customer-email">{{review.email}}</span>
         <br>
         <p class="customer-review"> {{review.review}} </p>
       </li>

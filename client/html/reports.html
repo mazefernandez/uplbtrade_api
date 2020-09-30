@@ -2,10 +2,14 @@
   <!-- App Reports -->
   <ul id="reviews" class="collection">
     <li class="collection-item" ng-repeat="report in reports track by $index">
-      <span class="customer-name">{{report.reporter.first_name + " " + report.reporter.last_name}}</span> <br>
+      <span class="customer-name">{{report.reporter.first_name + " " + report.reporter.last_name}}</span> 
+      <span class="date">
+          <i class="tiny material-icons">date_range</i>
+          {{report.date | date : 'MMMM d, yyyy h:mm:ss a' : 'Asia/Manila'}}
+      </span>
+      <br>
       <span class="customer-email">{{report.reporter.email}}</span> <br>
       <p class="customer-report"> {{report.message}} </p>
-      <p>{{report.date | date : 'yyyy-MM-dd HH:mm:ss' : 'Asia/Manila'}}</p>
       <span class="customer-name">{{report.customer.first_name + " " + report.customer.last_name}}</span> <br>
       <span class="customer-email">{{report.customer.email}}</span>
     </li>
