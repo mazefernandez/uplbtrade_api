@@ -25,7 +25,7 @@ router.get('/api/customers/search/:search', customerCtrl.searchCustomerItems)
 //routes for items
 router.get('/api/items', itemCtrl.getItems)
 router.get('/api/items/:id', itemCtrl.getItem)
-router.post('/api/items', uploadCtrl.upload.single('image'), itemCtrl.addItem)
+router.post('/api/items', itemCtrl.addItem)
 router.put('/api/items/:id', uploadCtrl.upload.single('image'), itemCtrl.updateItem)
 router.delete('/api/items/:id', itemCtrl.deleteItem)
 

@@ -33,8 +33,8 @@ exports.addItem = (req,res) => {
     var item = {
 		name : req.body.name, 
 		description : req.body.description,
-		price : req.body.price,
-		image : req.body.image,
+		price : req.body.price, 
+	    	image : req.body.image,
 		condition : req.body.condition,
 		customer_id : req.body.customer_id
     }
