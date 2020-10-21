@@ -2,9 +2,9 @@
 const mysql = require('mysql')
 
 const connection = mysql.createConnection({
-   host : 'uplbtrade.cmou0pg51tob.ap-southeast-1.rds.amazonaws.com',
-   user : 'mazefernandez',
-   password : 'petrichor11',
+   host : '127.0.0.1',
+   user : 'root',
+   password : 'E-Commerce$4',
    db : 'uplbtrade',
    port : '3306',
    timezone: '+08:00',
