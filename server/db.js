@@ -2,11 +2,11 @@
 const mysql = require('mysql')
 
 const connection = mysql.createConnection({
-   host : '127.0.0.1',
+   host : 'localhost',
    user : 'root',
    password : 'E-Commerce$4',
    db : 'uplbtrade',
-   port : '3306',
+   port: 3306,
    timezone: '+08:00',
 })
 

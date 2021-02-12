@@ -142,3 +142,6 @@ CREATE TABLE `Transaction_Tracking` (
   KEY `fk_tracking_transaction_idx` (`transaction_id`),
   CONSTRAINT `fk_tracking_transaction` FOREIGN KEY (`transaction_id`) REFERENCES `Transaction` (`transaction_id`) ON DELETE CASCADE ON UPDATE NO ACTION
 );
+
+INSERT INTO `Admin` (`name`, `email`, `password`)
+VALUES (`Maze Fernandez`, `aafernandez5@up.edu.ph`, `petrichor11`)
