@@ -1,9 +1,9 @@
 'use strict'
 
-var mysql = require('mysql')
+import mysql from 'mysql'
 var connection = require(__dirname + '/../db.js')
 
-exports.addCustomerReport = (req, res) => {
+export function addCustomerReport(req, res) {
 	var customer_report = {
 		message : req.body.message, 
 		date : req.body.date,
@@ -23,7 +23,7 @@ exports.addCustomerReport = (req, res) => {
 	})
 }
 
-exports.getCustomerReports = (req, res) => {
+export function getCustomerReports(req, res) {
 	connection.query('SELECT * FROM Customer_Report', [], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows); 

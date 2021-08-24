@@ -1,10 +1,10 @@
+// home 
 var admin = angular.module('admin', ['ngRoute']);
-
-
 admin.controller('indexCtrl', function($scope, $location) {
 
 });
 
+// router
 admin.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl : '../html/reviews.html',

@@ -1,9 +1,9 @@
 'use strict' 
 
-const mysql = require('mysql')
+import mysql from 'mysql'
 const connection = require(__dirname + '/../db.js')
 
-exports.getCustomers = (req,res) => {
+export function getCustomers(req,res) {
     connection.query('SELECT * FROM Customer', [], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -16,7 +16,7 @@ exports.getCustomers = (req,res) => {
     })
 }
 
-exports.getCustomer = (req,res) => {
+export function getCustomer(req,res) {
     connection.query('SELECT * FROM Customer where customer_id =?', [req.params.id], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows[0])
@@ -29,7 +29,7 @@ exports.getCustomer = (req,res) => {
     })
 }
 
-exports.getCustomerByEmail = (req, res) => {
+export function getCustomerByEmail(req, res) {
     connection.query('SELECT * FROM Customer WHERE email = ?', [req.params.email], function(err,rows,fields) {
 		if (!err) {
 		    res.send(rows[0])
@@ -42,7 +42,7 @@ exports.getCustomerByEmail = (req, res) => {
     })
 }
 
-exports.addCustomer = (req,res) => {
+export function addCustomer(req,res) {
     var customer = {
         first_name : req.body.first_name,
         last_name : req.body.last_name,
@@ -61,7 +61,7 @@ exports.addCustomer = (req,res) => {
     })
 }
 
-exports.updateCustomer = (req,res) => {
+export function updateCustomer(req,res) {
     var customer = {
 		customer_id : req.params.id,
 		address : req.body.address, 
@@ -79,7 +79,7 @@ exports.updateCustomer = (req,res) => {
     })
 }
 
-exports.getCustomerItems = (req,res) => {
+export function getCustomerItems(req,res) {
     connection.query('SELECT * FROM Item where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -92,7 +92,7 @@ exports.getCustomerItems = (req,res) => {
     })
 }
 
-exports.searchCustomerItems = (req, res) => {
+export function searchCustomerItems(req, res) {
     connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows) 

@@ -1,9 +1,9 @@
 'use strict' 
 
-const mysql = require('mysql') 
+import mysql from 'mysql' 
 const connection = require(__dirname + '/../db.js')
 
-exports.getOffers = (req,res) => {
+export function getOffers(req,res) {
     connection.query('SELECT * FROM Offer', [], function (err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -16,7 +16,7 @@ exports.getOffers = (req,res) => {
     })
 }
 
-exports.getOffer = (req,res) => {
+export function getOffer(req,res) {
     connection.query('SELECT * FROM Offer where offer_id = ?', [req.params.id], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows[0])
@@ -29,7 +29,7 @@ exports.getOffer = (req,res) => {
     })
 }
 
-exports.getOfferBuying = (req,res) => {
+export function getOfferBuying(req,res) {
     connection.query('SELECT * FROM Offer WHERE buyer_id = ?', [req.params.id], function(err, rows, fiekds) {
 		if (!err) {
 		    res.send(rows) 
@@ -42,7 +42,7 @@ exports.getOfferBuying = (req,res) => {
     })
 } 
 
-exports.getOfferSelling = (req,res) => {
+export function getOfferSelling(req,res) {
     connection.query('SELECT * FROM Offer WHERE seller_id = ?', [req.params.id], function(err, rows, fiekds) {
         if (!err) {
             res.send(rows)
@@ -56,7 +56,7 @@ exports.getOfferSelling = (req,res) => {
 }
 
 
-exports.addOffer = (req,res) => {
+export function addOffer(req,res) {
     var offer = {
 		price : req.body.price, 
 		status : req.body.status,
@@ -78,7 +78,7 @@ exports.addOffer = (req,res) => {
     }) 
 }	    
 
-exports.declineOffer = (req,res) => {
+export function declineOffer(req,res) {
     var offer = {
 		status : "Declined"
     }
@@ -94,7 +94,7 @@ exports.declineOffer = (req,res) => {
     }) 
 }
 
-exports.acceptOffer = (req,res) => {
+export function acceptOffer(req,res) {
     var offer = {
 		status : "Accepted"
     }
@@ -110,7 +110,7 @@ exports.acceptOffer = (req,res) => {
     })
 }
 
-exports.deleteOffer = (req,res) => {
+export function deleteOffer(req,res) {
     connection.query('DELETE FROM Offer WHERE offer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(null)

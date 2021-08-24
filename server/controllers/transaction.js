@@ -1,9 +1,9 @@
 'use strict'
 
-const mysql = require('mysql')
+import mysql from 'mysql'
 const connection = require(__dirname + '/../db.js')
 
-exports.getTransactions = (req, res) => {
+export function getTransactions(req, res) {
 	connection.query('SELECT * FROM Transaction', [], function (err, rows, fields) {
 		if (!err) {
 			res.send(rows)
@@ -16,7 +16,7 @@ exports.getTransactions = (req, res) => {
 	})
 }
 
-exports.getTransaction = (req, res) => {
+export function getTransaction(req, res) {
 	connection.query('SELECT * FROM Transaction where transaction_id = ?', req.params.id, function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -29,7 +29,7 @@ exports.getTransaction = (req, res) => {
 	})
 }
 
-exports.addTransaction = (req, res) => {
+export function addTransaction(req, res) {
 	var transaction = {
 		item_id : req.body.item_id,
 		offer_id : req.body.offer_id,

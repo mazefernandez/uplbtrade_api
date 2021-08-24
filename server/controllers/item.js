@@ -1,9 +1,9 @@
 'use strict' 
 
-const mysql = require('mysql') 
+import mysql from 'mysql' 
 const connection = require(__dirname + '/../db.js')
 
-exports.getItems = (req,res) => {
+export function getItems(req,res) {
     connection.query('SELECT * FROM Item', [], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows)
@@ -16,7 +16,7 @@ exports.getItems = (req,res) => {
     })
 }
 
-exports.getItem = (req,res) => {
+export function getItem(req,res) {
     connection.query('SELECT * FROM Item where item_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows[0])
@@ -29,7 +29,7 @@ exports.getItem = (req,res) => {
     })
 }
 
-exports.addItem = (req,res) => {
+export function addItem(req,res) {
     var item = {
 		name : req.body.name, 
 		description : req.body.description,
@@ -51,7 +51,7 @@ exports.addItem = (req,res) => {
     }) 
 }
 
-exports.updateItem = (req,res) => {
+export function updateItem(req,res) {
     var item = {
 	        item_id : req.body.item_id,
 	        name : req.body.name,
@@ -72,7 +72,7 @@ exports.updateItem = (req,res) => {
     })
 }
 
-exports.deleteItem = (req,res) => {
+export function deleteItem(req,res) {
     connection.query('DELETE FROM Item WHERE item_id = ?', [req.params.id], function(err, rows, fields) {
 	if (!err) {
 		    res.send(null)
@@ -85,7 +85,7 @@ exports.deleteItem = (req,res) => {
     })
 }
 
-exports.searchItems = (req,res) => {
+export function searchItems(req,res) {
     connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err,rows,fields) {
         if (!err) {
 		    res.send(rows)

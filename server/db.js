@@ -1,7 +1,7 @@
 'use strict'
-const mysql = require('mysql')
+import { createConnection } from 'mysql'
 
-const connection = mysql.createConnection({
+const connection = createConnection({
    host : 'localhost',
    user : 'root',
    password : 'E-Commerce$4',
@@ -19,4 +19,4 @@ connection.connect((err) => {
 })
 
 connection.query('USE uplbtrade')
-module.exports = connection;
+export default connection;
