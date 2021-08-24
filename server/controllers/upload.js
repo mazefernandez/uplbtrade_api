@@ -1,24 +1,30 @@
-var multer = require('multer')
-var shell = require('shelljs')
-var path = require('path')
+// upload to server 
 
-var imagemin = require('imagemin')
-var mozjpeg = require('imagemin-mozjpeg')
+import multer, { diskStorage } from 'multer'
+import { ls } from 'shelljs'
+import { extname } from 'path'
 
-var storage = multer.diskStorage({
+import imagemin from 'imagemin'
+import mozjpeg from 'imagemin-mozjpeg'
+
+// storage for images 
+var storage = diskStorage({
     destination: function(req, file, cb) {
     	cb(null,__dirname + '/../../client/images')
     },
+    // generate file name and destination
     filename: function(req, file, cb) {
-		cb(null, file.fieldname.toLowerCase() + '-' + (shell.ls(__dirname + '/../../client/images').length + 1) + path.extname(file.originalname))
+		cb(null, file.fieldname.toLowerCase() + '-' + (ls(__dirname + '/../../client/images').length + 1) + extname(file.originalname))
     }
 })
 
+// set storage size and limit
 var upload = multer({ 
 	storage: storage,
 	limits: { fieldSize: 25 * 1024 * 1024}
 })
 
-exports.upload = (function(req, res, next) {
-    return multer({ storage: storage })
-})();
+const _upload = (function (req, res, next) {
+  return multer({ storage: storage })
+})()
+export { _upload as upload }

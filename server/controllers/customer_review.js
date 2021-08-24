@@ -1,9 +1,9 @@
 'use strict'
 
-const mysql = require('mysql')
+import mysql from 'mysql'
 const connection = require(__dirname + '/../db.js')
 
-exports.getCustomerReviews = (req, res) => {
+export function getCustomerReviews(req, res) {
 	connection.query('SELECT * FROM Customer_Review', [], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows)
@@ -17,7 +17,7 @@ exports.getCustomerReviews = (req, res) => {
 }
 
 
-exports.getCustomerReview = (req, res) => {
+export function getCustomerReview(req, res) {
 	connection.query('SELECT * FROM Customer_Review where customer_review_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -30,7 +30,7 @@ exports.getCustomerReview = (req, res) => {
 	})
 }
 
-exports.getSpecificCustomerReviews = (req, res) => {
+export function getSpecificCustomerReviews(req, res) {
 	connection.query('SELECT * FROM Customer_Review where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows)
@@ -43,7 +43,7 @@ exports.getSpecificCustomerReviews = (req, res) => {
 	})
 }
 
-exports.getRating = (req, res) => {
+export function getRating(req, res) {
 	connection.query('SELECT AVG(rating) FROM Customer_Review where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -56,7 +56,7 @@ exports.getRating = (req, res) => {
 	})
 }
 
-exports.deleteCustomerReview = (req, res) => {
+export function deleteCustomerReview(req, res) {
 	connection.query('DELETE FROM Customer_Review where customer_review_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(null)

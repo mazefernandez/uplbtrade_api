@@ -1,12 +1,12 @@
 'use strict'
-const mysql = require('mysql')
+import { createConnection } from 'mysql'
 
-const connection = mysql.createConnection({
-   host : 'uplbtrade.cmou0pg51tob.ap-southeast-1.rds.amazonaws.com',
-   user : 'mazefernandez',
-   password : 'petrichor11',
+const connection = createConnection({
+   host : 'localhost',
+   user : 'root',
+   password : 'E-Commerce$4',
    db : 'uplbtrade',
-   port : '3306',
+   port: 3306,
    timezone: '+08:00',
 })
 
@@ -19,4 +19,4 @@ connection.connect((err) => {
 })
 
 connection.query('USE uplbtrade')
-module.exports = connection;
+export default connection;
