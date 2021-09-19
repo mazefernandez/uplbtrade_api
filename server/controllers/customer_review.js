@@ -1,7 +1,12 @@
 'use strict'
 
-import mysql from 'mysql'
-const connection = require(__dirname + '/../db.js')
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const connection = import(__dirname + '/../db.js')
 
 export function getCustomerReviews(req, res) {
 	connection.query('SELECT * FROM Customer_Review', [], function(err, rows, fields) {

@@ -1,8 +1,9 @@
 {
   "name": "uplbtradeapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "admin panel for the application UPLB Trade",
   "main": "server/server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js"
@@ -22,18 +23,21 @@
   },
   "homepage": "https://github.com/mazefernandez/uplbtrade_api#readme",
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "nodemon": "^2.0.12",
+    "trim-newlines": "^4.0.2"
   },
   "dependencies": {
-    "angular": "^1.8.0",
-    "angular-route": "^1.7.8",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "imagemin": "^5.2.2",
-    "imagemin-mozjpeg": "^8.0.0",
-    "moment": "^2.24.0",
-    "multer": "^1.4.1",
-    "mysql": "^2.13.0",
-    "shelljs": "^0.7.7"
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "multer": "^1.4.3",
+    "mysql": "^2.18.1",
+    "shelljs": "^0.8.4"
+  },
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6"
   }
 }
