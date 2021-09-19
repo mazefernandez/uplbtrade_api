@@ -100,6 +100,9 @@ CREATE TABLE `Tagmap` (
 
 CREATE TABLE `Transaction` (
   `transaction_id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `venue` varchar(45) NOT NULL,
   `item_id` int(11) NOT NULL,
   `offer_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL,

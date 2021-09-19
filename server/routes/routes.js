@@ -6,7 +6,7 @@ var router = Router()
 import { getCustomer, getCustomers, getCustomerByEmail, addCustomer, updateCustomer, getCustomerItems, searchCustomerItems } from '../controllers/customer.js'
 import { getItems, getItem, addItem, updateItem, deleteItem, searchItems } from '../controllers/item.js'
 import { getOffers, getOffer, addOffer, deleteOffer, getOfferBuying, getOfferSelling, acceptOffer, declineOffer } from '../controllers/offer.js'
-import { getTransactions, getTransaction, addTransaction } from '../controllers/transaction.js'
+import { getTransactions, getTransaction, addTransaction, getSellerTransactions, getBuyerTransactions } from '../controllers/transaction.js'
 import { upload } from '../controllers/upload.js'
 import { getReviewCustomers, getCount, getAverage, getApplicationReviews, getApplicationReview, addApplicationReview, deleteApplicationReview, getRating } from '../controllers/application_review.js'
 import { getCustomerReviews, getCustomerReview, deleteCustomerReview, getSpecificCustomerReviews } from '../controllers/customer_review.js'
@@ -46,6 +46,8 @@ router.put('/api/offers/decline/:id', declineOffer)
 //routes for transactions
 router.get('/api/transactions', getTransactions)
 router.get('/api/transactions/:id', getTransaction)
+router.get('/api/transactions/buyer/:id', getBuyerTransactions)
+router.get('/api/transactions/seller/:id', getSellerTransactions)
 router.post('/api/transactions', addTransaction)
 
 //routes for application reviews 
@@ -72,4 +74,4 @@ router.get('/api/customer-reviews/rating/:id', getRating)
 router.get('/api/customer-reports', getCustomerReports)
 router.post('/api/customer-reports', addCustomerReport)
 
-export default router;
+export default router

@@ -1,17 +1,21 @@
 'use strict' 
 
-import express, { static } from 'express'
-import mysql from 'mysql'
-import { json, urlencoded } from 'body-parser'
-import { join, resolve } from 'path'
-const connection = require(__dirname + '/db.js')
+import express from 'express'
+import { join, resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const connection = import(__dirname + '/db.js')
 const app = express()
 
-app.use(static(join(__dirname + '/../client')))
+app.use(express.static(join(__dirname + '/../client')))
 
-var routes = require(__dirname + '/routes/routes.js')
-app.use(json({limit:'10mb', extended:true}))
-app.use(urlencoded({ extended: true}))
+import routes from './routes/routes.js'
+
+app.use(express.json({limit:'10mb', extended:true}))
+app.use(express.urlencoded({ extended: true}))
 
 app.use('/', routes)
 
@@ -32,3 +36,4 @@ process.env.TZ = 'Asia/Manila'
 var port = process.env.PORT || 8000
 
 app.listen(port, () => console.log('Server running on port ' + port))
+

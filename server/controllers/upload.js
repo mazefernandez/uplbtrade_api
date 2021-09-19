@@ -1,11 +1,9 @@
 // upload to server 
 
 import multer, { diskStorage } from 'multer'
-import { ls } from 'shelljs'
+import pkg from 'shelljs'
+const {ls} = pkg
 import { extname } from 'path'
-
-import imagemin from 'imagemin'
-import mozjpeg from 'imagemin-mozjpeg'
 
 // storage for images 
 var storage = diskStorage({

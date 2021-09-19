@@ -4,3 +4,7 @@ dist/
 semantic/
 semantic.json
 *.log
+.firebaserc
+firebase.json
+.firebase
+
