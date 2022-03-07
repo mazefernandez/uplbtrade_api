@@ -35,6 +35,28 @@ export function getCustomerReview(req, res) {
 	})
 }
 
+export function addCustomerReview(req, res) {
+	var app_review = {
+		rating : req.body.rating,
+		review : req.body.review,
+		date : require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+		rater_id: req.body.rater_id,
+		customer_id : req.body.customer_id,
+		transaction_id: req.body.transaction_id
+	}
+	connection.query('INSERT INTO Application_Review SET ?', app_review, function(err, rows, fields) {
+		if (!err) {
+			app_review.review_id = rows.insertId;
+			res.send(rows[0])
+			console.log("add application review")
+		}
+		else {
+			res.send(err)
+			console.log("Error in retrieving application reviews " + err)
+		}
+	});
+}
+
 export function getSpecificCustomerReviews(req, res) {
 	connection.query('SELECT * FROM Customer_Review where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {

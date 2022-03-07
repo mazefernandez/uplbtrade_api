@@ -9,7 +9,7 @@ import { getOffers, getOffer, addOffer, deleteOffer, getOfferBuying, getOfferSel
 import { getTransactions, getTransaction, addTransaction, getSellerTransactions, getBuyerTransactions } from '../controllers/transaction.js'
 import { upload } from '../controllers/upload.js'
 import { getReviewCustomers, getCount, getAverage, getApplicationReviews, getApplicationReview, addApplicationReview, deleteApplicationReview, getRating } from '../controllers/application_review.js'
-import { getCustomerReviews, getCustomerReview, deleteCustomerReview, getSpecificCustomerReviews } from '../controllers/customer_review.js'
+import { getCustomerReviews, getCustomerReview, addCustomerReview, deleteCustomerReview, getSpecificCustomerReviews } from '../controllers/customer_review.js'
 import { getCustomerReports, addCustomerReport } from '../controllers/customer_report.js'
 
 //routes for customers
@@ -65,6 +65,7 @@ router.get('/api/application-reviews/rating', getRating)
 //routes for customer reviews
 router.get('/api/customer-reviews', getCustomerReviews)
 router.get('/api/customer-reviews/:id', getCustomerReview)
+router.post('api/customer-reviews', addCustomerReview)
 router.delete('/api/customer-reviews/:id', deleteCustomerReview)
 
 router.get('/api/customer-reviews/customer/:id', getSpecificCustomerReviews)

@@ -123,6 +123,7 @@ CREATE TABLE `Customer_Review` (
   `customer_review_id` int(11) NOT NULL AUTO_INCREMENT,
   `rating` decimal(2,1) DEFAULT '0.0',
   `review` varchar(255) DEFAULT NULL,
+  `date` datetime NOT NULL,
   `rater_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `transaction_id` int(11) NOT NULL,
