@@ -1,14 +1,8 @@
 'use strict'
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function addCustomerReport(req, res) {
+exports.addCustomerReport = (req, res) => {
 	var customer_report = {
 		message : req.body.message, 
 		date : req.body.date,
@@ -28,7 +22,7 @@ export function addCustomerReport(req, res) {
 	})
 }
 
-export function getCustomerReports(req, res) {
+exports.getCustomerReports = (req, res) => {
 	connection.query('SELECT * FROM Customer_Report', [], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows); 

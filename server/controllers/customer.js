@@ -1,14 +1,8 @@
 'use strict' 
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function getCustomers(req,res) {
+exports.getCustomers = (req,res) => {
     connection.query('SELECT * FROM Customer', [], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -21,7 +15,7 @@ export function getCustomers(req,res) {
     })
 }
 
-export function getCustomer(req,res) {
+exports.getCustomer = (req,res) => {
     connection.query('SELECT * FROM Customer where customer_id =?', [req.params.id], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows[0])
@@ -34,7 +28,7 @@ export function getCustomer(req,res) {
     })
 }
 
-export function getCustomerByEmail(req, res) {
+exports.getCustomerByEmail = (req, res) => {
     connection.query('SELECT * FROM Customer WHERE email = ?', [req.params.email], function(err,rows,fields) {
 		if (!err) {
 		    res.send(rows[0])
@@ -47,13 +41,14 @@ export function getCustomerByEmail(req, res) {
     })
 }
 
-export function addCustomer(req,res) {
+exports.addCustomer = (req,res) => {
     var customer = {
         first_name : req.body.first_name,
         last_name : req.body.last_name,
-		email : req.body.email
+		email : req.body.email,
+		image : req.body.image
     }
-    connection.query('INSERT INTO Customer SET ?', customer, function(err, rows, fields) {
+    connection.query('INSERT IGNORE INTO Customer SET ?', customer, function(err, rows, fields) {
 		if (!err) {
 	    	customer.customer_id = rows.insertId
             res.send(customer)
@@ -66,7 +61,7 @@ export function addCustomer(req,res) {
     })
 }
 
-export function updateCustomer(req,res) {
+exports.updateCustomer = (req,res) => {
     var customer = {
 		customer_id : req.params.id,
 		address : req.body.address, 
@@ -84,7 +79,7 @@ export function updateCustomer(req,res) {
     })
 }
 
-export function getCustomerItems(req,res) {
+exports.getCustomerItems = (req,res) => {
     connection.query('SELECT * FROM Item where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -97,7 +92,7 @@ export function getCustomerItems(req,res) {
     })
 }
 
-export function searchCustomerItems(req, res) {
+exports.searchCustomerItems = (req, res) => {
     connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows) 

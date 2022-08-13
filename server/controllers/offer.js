@@ -1,14 +1,8 @@
 'use strict' 
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function getOffers(req,res) {
+exports.getOffers = (req,res) => {
     connection.query('SELECT * FROM Offer', [], function (err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -21,7 +15,7 @@ export function getOffers(req,res) {
     })
 }
 
-export function getOffer(req,res) {
+exports.getOffer = (req,res) => {
     connection.query('SELECT * FROM Offer where offer_id = ?', [req.params.id], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows[0])
@@ -34,7 +28,7 @@ export function getOffer(req,res) {
     })
 }
 
-export function getOfferBuying(req,res) {
+exports.getOfferBuying = (req,res) => {
     connection.query('SELECT * FROM Offer WHERE buyer_id = ?', [req.params.id], function(err, rows, fiekds) {
 		if (!err) {
 		    res.send(rows) 
@@ -47,7 +41,7 @@ export function getOfferBuying(req,res) {
     })
 } 
 
-export function getOfferSelling(req,res) {
+exports.getOfferSelling = (req,res) => {
     connection.query('SELECT * FROM Offer WHERE seller_id = ?', [req.params.id], function(err, rows, fiekds) {
         if (!err) {
             res.send(rows)
@@ -61,7 +55,7 @@ export function getOfferSelling(req,res) {
 }
 
 
-export function addOffer(req,res) {
+exports.addOffer = (req,res) => {
     var offer = {
 		price : req.body.price, 
 		status : req.body.status,
@@ -83,7 +77,7 @@ export function addOffer(req,res) {
     }) 
 }	    
 
-export function declineOffer(req,res) {
+exports.declineOffer = (req,res) => {
     var offer = {
 		status : "Declined"
     }
@@ -99,7 +93,7 @@ export function declineOffer(req,res) {
     }) 
 }
 
-export function acceptOffer(req,res) {
+exports.acceptOffer = (req,res) => {
     var offer = {
 		status : "Accepted"
     }
@@ -115,7 +109,7 @@ export function acceptOffer(req,res) {
     })
 }
 
-export function deleteOffer(req,res) {
+exports.deleteOffer = (req,res) => {
     connection.query('DELETE FROM Offer WHERE offer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(null)

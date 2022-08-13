@@ -1,33 +1,30 @@
 'use strict' 
 
-import express from 'express'
-import { join, resolve, dirname } from 'path'
-import { fileURLToPath } from 'url'
+const express = require('express')
+const mysql = require('mysql')
+const bodyParser = require('body-parser')
+const path = require('path')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/db.js')
+const connection = require(__dirname + '/db.js')
 const app = express()
 
-app.use(express.static(join(__dirname + '/../client')))
+app.use(express.static(path.join(__dirname + '/../client')))
 
-import routes from './routes/routes.js'
-
-app.use(express.json({limit:'10mb', extended:true}))
-app.use(express.urlencoded({ extended: true}))
+var routes = require(__dirname + '/routes/routes.js')
+app.use(bodyParser.json({limit:'10mb', extended:true}))
+app.use(bodyParser.urlencoded({ extended: true}))
 
 app.use('/', routes)
 
 app.get('/', (req, res) => {
-	res.sendFile(resolve(__dirname + '/../client/index.html')) 
+	res.sendFile(path.resolve(__dirname + '/../client/index.html')) 
 })
 
 app.get('/angular.min.js', (req, res) => {
-	res.sendFile(resolve(__dirname + '/../node_modules/angular/angular.js'))
+	res.sendFile(path.resolve(__dirname + '/../node_modules/angular/angular.js'))
 })
 app.get('/angular-route.min.js', (req, res) => {
-	res.sendFile(resolve(__dirname + '/../node_modules/angular-route/angular-route.js'))
+	res.sendFile(path.resolve(__dirname + '/../node_modules/angular-route/angular-route.js'))
 })
 
 // set timezone

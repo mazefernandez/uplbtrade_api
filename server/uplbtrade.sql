@@ -14,6 +14,7 @@ CREATE TABLE `Admin` (
 
 CREATE TABLE `Customer` (
   `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) DEFAULT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -56,7 +57,7 @@ CREATE TABLE `Item` (
   `description` varchar(255) NOT NULL,
   `price` decimal(15,2) DEFAULT '0.00',
   `image` varchar(255) NOT NULL,
-  `condition` varchar(100) NOT NULL,
+  `condition` enum('brand new','like new','used (good)', 'used (fair)') NOT NULL,
   `customer_id` int(11) NOT NULL,
   PRIMARY KEY (`item_id`),
   KEY `customer_id_idx` (`customer_id`),
@@ -83,19 +84,20 @@ CREATE TABLE `Offer` (
 
 CREATE TABLE `Tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
-  `tag_name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`tag_id`)
+  `tag_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`tag_id`),
+  UNIQUE KEY `tag_name_UNIQUE` (`tag_name`)
 );
 
 CREATE TABLE `Tagmap` (
-  `tagmap_id` int(11) NOT NULL,
-  `item_id` int(11) DEFAULT NULL,
-  `tag_id` int(11) DEFAULT NULL,
+  `tagmap_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
   PRIMARY KEY (`tagmap_id`),
   KEY `fk_tagmap_item_idx` (`item_id`),
   KEY `fk_tagmap_tag_idx` (`tag_id`),
-  CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `fk_tagmap_tag` FOREIGN KEY (`tag_id`) REFERENCES `Tag` (`tag_id`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_tagmap_tag` FOREIGN KEY (`tag_id`) REFERENCES `Tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Transaction` (
@@ -147,5 +149,6 @@ CREATE TABLE `Transaction_Tracking` (
   CONSTRAINT `fk_tracking_transaction` FOREIGN KEY (`transaction_id`) REFERENCES `Transaction` (`transaction_id`) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
-INSERT INTO `Admin` (`name`, `email`, `password`)
-VALUES (`Maze Fernandez`, `aafernandez5@up.edu.ph`, `petrichor11`)
+-- initial data 
+
+INSERT INTO Admin (name, email, password) VALUES ("Maze Fernandez", "aafernandez5@up.edu.ph", "petrichor11");

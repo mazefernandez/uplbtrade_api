@@ -1,14 +1,8 @@
 'use strict' 
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function getItems(req,res) {
+exports.getItems = (req,res) => {
     connection.query('SELECT * FROM Item', [], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows)
@@ -21,7 +15,7 @@ export function getItems(req,res) {
     })
 }
 
-export function getItem(req,res) {
+exports.getItem = (req,res) => {
     connection.query('SELECT * FROM Item where item_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows[0])
@@ -34,12 +28,25 @@ export function getItem(req,res) {
     })
 }
 
-export function addItem(req,res) {
+exports.getItemByImg = (req, res) => {
+	connection.query('SELECT * FROM Item where image = ?', [req.params.img], function(err, rows, fields) {
+		if (!err) {
+			res.send(rows[0])
+			console.log("Retrieved item_id")
+		}
+		else {
+			res.send(err)
+			console.log("Error in retrieving item_id " + err)
+		}
+	})
+}
+
+exports.addItem = (req,res) => {
     var item = {
 		name : req.body.name, 
 		description : req.body.description,
 		price : req.body.price, 
-	    	image : req.body.image,
+	    image : req.body.image,
 		condition : req.body.condition,
 		customer_id : req.body.customer_id
     }
@@ -56,13 +63,13 @@ export function addItem(req,res) {
     }) 
 }
 
-export function updateItem(req,res) {
+exports.updateItem = (req,res) => {
     var item = {
-	        item_id : req.body.item_id,
-	        name : req.body.name,
+	    item_id : req.params.id,
+	    name : req.body.name,
 		description : req.body.description,
 		price : req.body.price,
-		image : (typeof req.file != 'undefined') ? req.file.path.substring(req.file.path.indexOf('images/')).replace('images','') : req.body.image,
+		image : req.body.image,
 		condition : req.body.condition
     }
     connection.query('UPDATE Item SET name = ?, description = ?, price = ?, image = ?, `condition` = ? WHERE item_id = ?', [req.body.name, req.body.description, req.body.price, req.body.image, req.body.condition, req.params.id], function(err, rows, fields) {
@@ -77,7 +84,7 @@ export function updateItem(req,res) {
     })
 }
 
-export function deleteItem(req,res) {
+exports.deleteItem = (req,res) => {
     connection.query('DELETE FROM Item WHERE item_id = ?', [req.params.id], function(err, rows, fields) {
 	if (!err) {
 		    res.send(null)
@@ -90,7 +97,7 @@ export function deleteItem(req,res) {
     })
 }
 
-export function searchItems(req,res) {
+exports.searchItems = (req,res) => {
     connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err,rows,fields) {
         if (!err) {
 		    res.send(rows)
@@ -102,3 +109,5 @@ export function searchItems(req,res) {
 		}
     })
 }
+
+
