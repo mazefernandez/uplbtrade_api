@@ -1,14 +1,8 @@
 'use strict'
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function getApplicationReviews(req,res) {
+exports.getApplicationReviews = (req,res) => {
     connection.query('SELECT * FROM Application_Review', [], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
@@ -21,7 +15,7 @@ export function getApplicationReviews(req,res) {
     })
 }
 
-export function getApplicationReview(req,res) {
+exports.getApplicationReview = (req,res) => {
     connection.query('SELECT * FROM Application_Review where review_id =?', [req.params.id], function(err, rows, fields) {
     	if (!err) {
 		    res.send(rows[0])
@@ -34,7 +28,7 @@ export function getApplicationReview(req,res) {
     })
 }
 
-export function getRating(req, res) {
+exports.getRating = (req, res) => {
 	connection.query('SELECT AVG(rating) FROM Application_Review', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -47,7 +41,7 @@ export function getRating(req, res) {
 	})
 }
 
-export function addApplicationReview(req, res) {
+exports.addApplicationReview = (req, res) => {
 	var app_review = {
 		rating : req.body.rating,
 		review : req.body.review,
@@ -67,7 +61,7 @@ export function addApplicationReview(req, res) {
 	});
 }
 
-export function deleteApplicationReview(req, res) {
+exports.deleteApplicationReview = (req, res) => {
 	connection.query('DELETE FROM Application_Review where review_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(null)
@@ -80,7 +74,7 @@ export function deleteApplicationReview(req, res) {
 	})
 }
 
-export function getReviewCustomers(req,res) {
+exports.getReviewCustomers = (req,res) => {
 	connection.query('SELECT * FROM Application_Review, Customer where Application_Review.customer_id = Customer.customer_id', [], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows);
@@ -93,7 +87,7 @@ export function getReviewCustomers(req,res) {
 	})
 }
 
-export function getCount(req,res) {
+exports.getCount = (req,res) => {
 	connection.query('SELECT count(rating) from Application_Review', [], function(err,rows,fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -106,7 +100,7 @@ export function getCount(req,res) {
 	})
 }
 
-export function getAverage(req,res) {
+exports.getAverage = (req,res) => {
 	connection.query('SELECT round(avg(rating),2) from Application_Review', [], function(err,rows,fields) {
 		if (!err) {
 			res.send(rows[0])

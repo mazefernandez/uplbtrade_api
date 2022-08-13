@@ -1,14 +1,8 @@
 'use strict'
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function getTransactions(req, res) {
+exports.getTransactions = (req, res) => {
 	connection.query('SELECT * FROM Transaction', [], function (err, rows, fields) {
 		if (!err) {
 			res.send(rows)
@@ -21,7 +15,7 @@ export function getTransactions(req, res) {
 	})
 }
 
-export function getTransaction(req, res) {
+exports.getTransaction = (req, res) => {
 	connection.query('SELECT * FROM Transaction where transaction_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -35,11 +29,13 @@ export function getTransaction(req, res) {
 }
 
 
-export function getBuyerTransactions(req, res) {
+exports.getBuyerTransactions = (req, res) => {
 	connection.query('SELECT * FROM Transaction where buyer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows)
 			console.log("Retrieved buyer transactions")
+			console.log(req.params.id)
+			console.log(rows)
 		}
 		else {
 			res.send(err)
@@ -48,11 +44,13 @@ export function getBuyerTransactions(req, res) {
 	})
 }
 
-export function getSellerTransactions(req, res) {
+exports.getSellerTransactions = (req, res) => {
 	connection.query('SELECT * FROM Transaction where seller_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows)
 			console.log("Retrieved seller transactions")
+			console.log(req.params.id)
+			console.log(rows)
 		}
 		else {
 			res.send(err)
@@ -61,7 +59,7 @@ export function getSellerTransactions(req, res) {
 	})
 }
 
-export function addTransaction(req, res) {
+exports.addTransaction = (req, res) => {
 	var transaction = {
 		date : req.body.date, 
 		time : req.body.time,
@@ -71,7 +69,9 @@ export function addTransaction(req, res) {
 		seller_id : req.body.seller_id,
 		buyer_id : req.body.buyer_id
 	}
-	connection.query('INSERT INTO Transaction SET ?', transaction, function (err, rows, fields) {
+	console.log(req.body.offer_id)
+	connection.query("INSERT INTO Transaction(date, time, venue, item_id, offer_id, seller_id, buyer_id) VALUES(STR_TO_DATE(?,'%Y-%m-%d'),STR_TO_DATE(?, '%h:%i:%s'),?,?,?,?,?)", 
+	[req.body.date, req.body.time, req.body.venue,req.body.item_id, req.body.offer_id, req.body.seller_id, req.body.buyer_id ], function (err, rows, fields) {
 		if (!err) {
 			transaction.transaction_id = rows.insertId
 			res.send(transaction)

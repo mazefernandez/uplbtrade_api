@@ -1,14 +1,8 @@
 'use strict'
 
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+const connection = require(__dirname + '/../db.js')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const connection = import(__dirname + '/../db.js')
-
-export function getCustomerReviews(req, res) {
+exports.getCustomerReviews = (req, res) => {
 	connection.query('SELECT * FROM Customer_Review', [], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows)
@@ -22,7 +16,7 @@ export function getCustomerReviews(req, res) {
 }
 
 
-export function getCustomerReview(req, res) {
+exports.getCustomerReview = (req, res) => {
 	connection.query('SELECT * FROM Customer_Review where customer_review_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -35,7 +29,7 @@ export function getCustomerReview(req, res) {
 	})
 }
 
-export function addCustomerReview(req, res) {
+exports.addCustomerReview = (req, res) => {
 	var app_review = {
 		rating : req.body.rating,
 		review : req.body.review,
@@ -57,7 +51,7 @@ export function addCustomerReview(req, res) {
 	});
 }
 
-export function getSpecificCustomerReviews(req, res) {
+exports.getSpecificCustomerReviews = (req, res) => {
 	connection.query('SELECT * FROM Customer_Review where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows)
@@ -70,7 +64,7 @@ export function getSpecificCustomerReviews(req, res) {
 	})
 }
 
-export function getRating(req, res) {
+exports.getRating = (req, res) => {
 	connection.query('SELECT AVG(rating) FROM Customer_Review where customer_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows[0])
@@ -83,7 +77,7 @@ export function getRating(req, res) {
 	})
 }
 
-export function deleteCustomerReview(req, res) {
+exports.deleteCustomerReview = (req, res) => {
 	connection.query('DELETE FROM Customer_Review where customer_review_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 			res.send(null)
