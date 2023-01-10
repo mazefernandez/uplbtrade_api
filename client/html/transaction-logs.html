@@ -1,3 +1,23 @@
+<header id="title-card">Transaction History</header>
 <div class="container"> 
-	<p> transaction logs </p>
+  <!---Transaction History --->
+  <div class="row">
+    <ul id="transactions" class="collection col s6">
+      <li class="collection-item" ng-repeat="transaction in transactions track by $index">
+	<span class="transaction-id">TransactionID: {{transaction.transaction_id}}</span> <br>
+       <!---- <span class="transaction-status">Status: {{transaction.status}}</span> <br> ---->
+	<span class="transaction-venue">Venue: {{transaction.venue}}</span> <br>
+	<span class="transaction-item">ItemID: {{transaction.item_id}}</span> <br>
+	<span class="transaction-offer">OfferID: {{transaction.offer_id}}</span> <br>
+	<span class="transaction-seller">sellerID: {{transaction.seller_id}}</span> <br>
+	<span class="transaction-buyer">BuyerID: {{transaction.buyer_id}}</span> <br>
+
+        <span class="date">
+          <i class="tiny material-icons">date_range</i>
+          {{transaction.date | date : 'MMMM d, yyyy' : 'Asia/Manila'}}
+        </span>
+        <br>
+      </li>
+    </ul> 
+  </div>
 </div> 

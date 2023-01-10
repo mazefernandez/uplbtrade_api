@@ -5,7 +5,7 @@ const connection = require(__dirname + '/../db.js')
 exports.addCustomerReport = (req, res) => {
 	var customer_report = {
 		message : req.body.message, 
-		date : req.body.date,
+		date : require('moment')().format('YYYY-MM-DD HH:mm:ss'),
 		reporter_id : req.body.reporter_id,
 		customer_id : req.body.customer_id
 	}

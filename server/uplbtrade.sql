@@ -29,7 +29,7 @@ CREATE TABLE `Customer` (
 CREATE TABLE `Application_Review` (
   `review_id` int(11) NOT NULL AUTO_INCREMENT,
   `rating` decimal(2,1) DEFAULT '0.0',
-  `review` varchar(255) DEFAULT NULL,
+  `review` varchar(max) DEFAULT NULL,
   `date` datetime NOT NULL,
   `customer_id` int(11) NOT NULL,
   PRIMARY KEY (`review_id`),

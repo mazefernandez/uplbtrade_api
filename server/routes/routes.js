@@ -49,6 +49,7 @@ router.get('/api/transactions', transactionCtrl.getTransactions)
 router.get('/api/transactions/:id', transactionCtrl.getTransaction)
 router.get('/api/transactions/buyer/:id', transactionCtrl.getBuyerTransactions)
 router.get('/api/transactions/seller/:id', transactionCtrl.getSellerTransactions)
+router.get('/api/transactions/logs', transactionCtrl.getLogs)
 router.post('/api/transactions', transactionCtrl.addTransaction)
 
 //routes for application reviews 

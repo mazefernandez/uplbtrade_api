@@ -84,3 +84,15 @@ exports.addTransaction = (req, res) => {
 	})
 }
 
+exports.getLogs = (req,res) => {
+	connection.query("SELECT Transaction.transaction_id, Transaction.date, Transaction.time, Transaction.venue, Transaction.item_id, Transaction.offer_id, Transaction.seller_id, Transaction.buyer_id, Transaction_Tracking.date, Transaction_Tracking.status FROM Transaction INNER JOIN Transaction_Tracking ON Transaction.transaction_id = Transaction_Tracking.transaction_id", [], function(err, rows, fields) {
+		if(!err) {
+			res.send(rows)
+			console.log("Received logs")
+		}
+		else {
+			res.send(err)
+			console.log("Error in receiving logs")
+		}
+	})
+}
