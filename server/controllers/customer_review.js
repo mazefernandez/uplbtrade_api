@@ -38,7 +38,7 @@ exports.addCustomerReview = (req, res) => {
 		customer_id : req.body.customer_id,
 		transaction_id: req.body.transaction_id
 	}
-	connection.query('INSERT INTO Application_Review SET ?', app_review, function(err, rows, fields) {
+	connection.query('INSERT INTO Customer_Review SET ?', app_review, function(err, rows, fields) {
 		if (!err) {
 			app_review.review_id = rows.insertId;
 			res.send(rows[0])
