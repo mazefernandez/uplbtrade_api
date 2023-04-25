@@ -30,7 +30,7 @@ exports.getCustomerReview = (req, res) => {
 }
 
 exports.addCustomerReview = (req, res) => {
-	var app_review = {
+	var customer_review = {
 		rating : req.body.rating,
 		review : req.body.review,
 		date : require('moment')().format('YYYY-MM-DD HH:mm:ss'),
@@ -38,15 +38,15 @@ exports.addCustomerReview = (req, res) => {
 		customer_id : req.body.customer_id,
 		transaction_id: req.body.transaction_id
 	}
-	connection.query('INSERT INTO Customer_Review SET ?', app_review, function(err, rows, fields) {
+	connection.query('INSERT INTO Customer_Review SET ?', customer_review, function(err, rows, fields) {
 		if (!err) {
-			app_review.review_id = rows.insertId;
+			customer_review.customer_review_id = rows.insertId;
 			res.send(rows[0])
-			console.log("add application review")
+			console.log("add customer review")
 		}
 		else {
 			res.send(err)
-			console.log("Error in retrieving application reviews " + err)
+			console.log("Error in adding customer review" + err)
 		}
 	});
 }

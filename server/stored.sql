@@ -17,3 +17,9 @@ CREATE TRIGGER log_received AFTER INSERT ON Customer_Review
     END
 //
 
+CREATE TRIGGER insert_tag AFTER INSERT ON Tagmap
+    FOR EACH ROW
+    BEGIN
+	INSERT into Tag(tag_name) VALUES(NEW.tag_name);
+    END
+//
