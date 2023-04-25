@@ -29,7 +29,7 @@ CREATE TABLE `Customer` (
 CREATE TABLE `Application_Review` (
   `review_id` int(11) NOT NULL AUTO_INCREMENT,
   `rating` decimal(2,1) DEFAULT '0.0',
-  `review` varchar(max) DEFAULT NULL,
+  `review` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
   `customer_id` int(11) NOT NULL,
   PRIMARY KEY (`review_id`),
@@ -92,12 +92,12 @@ CREATE TABLE `Tag` (
 CREATE TABLE `Tagmap` (
   `tagmap_id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL,
+  `tag_name` varchar(45) NOT NULL,
   PRIMARY KEY (`tagmap_id`),
   KEY `fk_tagmap_item_idx` (`item_id`),
-  KEY `fk_tagmap_tag_idx` (`tag_id`),
+  KEY `fk_tagmap_tag_idx` (`tag_name`),
   CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tagmap_tag` FOREIGN KEY (`tag_id`) REFERENCES `Tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_tagmap_tag` FOREIGN KEY (`tag_name`) REFERENCES `Tag` (`tag_name`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Transaction` (
