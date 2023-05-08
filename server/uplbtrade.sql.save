@@ -65,16 +65,16 @@ CREATE TABLE `Item` (
 );
 
 CREATE TABLE `Item_Report` (
-  `report_item_id` int(11) NOT NULL AUTO_INCREMENT,
-  `message` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
-  `reporter_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  PRIMARY KEY (`report_item_id`),
-  KEY `fk_report_item_reporter_idx` (`reporter_id`),
-  KEY `fk_report_item_item_idx` (`item_id`),
-  CONSTRAINT `fk_report_item_reporter` FOREIGN KEY (`reporter_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_report_item_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(255) NOT NULL, 
+  `date` datetime NOT NULL, 
+  `reporter_id` int(11) NOT NULL, 
+  `item_id` int(11) NOT NULL, 
+  PRIMARY KEY (`report_id`),
+  KEY `fk_report_reporter_idx` (`reporter_id`),
+  KEY `fk_report_item_idx` (`item_id`), 
+  CONSTRAINT `fk_
+
 );
 
 CREATE TABLE `Offer` (
