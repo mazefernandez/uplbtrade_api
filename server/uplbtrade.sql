@@ -98,8 +98,7 @@ CREATE TABLE `Offer` (
 CREATE TABLE `Tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`tag_id`),
-  UNIQUE KEY `tag_name_UNIQUE` (`tag_name`)
+  PRIMARY KEY (`tag_id`)
 );
 
 CREATE TABLE `Tagmap` (
@@ -108,9 +107,7 @@ CREATE TABLE `Tagmap` (
   `tag_name` varchar(45) NOT NULL,
   PRIMARY KEY (`tagmap_id`),
   KEY `fk_tagmap_item_idx` (`item_id`),
-  KEY `fk_tagmap_tag_idx` (`tag_name`),
-  CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tagmap_tag` FOREIGN KEY (`tag_name`) REFERENCES `Tag` (`tag_name`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Transaction` (
