@@ -8,6 +8,7 @@ const connection = mysql.createConnection({
    db : 'uplbtrade',
    port: 3306,
    timezone: '+08:00',
+   multipleStatements: true
 })
 
 connection.connect((err) => {

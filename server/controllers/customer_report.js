@@ -13,11 +13,11 @@ exports.addCustomerReport = (req, res) => {
 		if (!err) {
 			customer_report.report_id = rows.insertId;
 			res.send(customer_report)
-			console.log("Retrieved customer report")
-		}	
+			console.log("Added customer report")
+		}
 		else {
 			res.send(err)
-			console.log("Error in retrieving customer report" + err)
+			console.log("Error in adding customer report" + err)
 		}
 	})
 }

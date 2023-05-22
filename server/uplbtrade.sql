@@ -64,6 +64,19 @@ CREATE TABLE `Item` (
   CONSTRAINT `fk_item_customer` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
+CREATE TABLE `Item_Report` (
+  `report_item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `reporter_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  PRIMARY KEY (`report_item_id`),
+  KEY `fk_report_item_reporter_idx` (`reporter_id`),
+  KEY `fk_report_item_item_idx` (`item_id`),
+  CONSTRAINT `fk_report_item_reporter` FOREIGN KEY (`reporter_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_report_item_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
 CREATE TABLE `Offer` (
   `offer_id` int(11) NOT NULL AUTO_INCREMENT,
   `price` decimal(15,2) DEFAULT '0.00',
@@ -85,8 +98,7 @@ CREATE TABLE `Offer` (
 CREATE TABLE `Tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`tag_id`),
-  UNIQUE KEY `tag_name_UNIQUE` (`tag_name`)
+  PRIMARY KEY (`tag_id`)
 );
 
 CREATE TABLE `Tagmap` (
@@ -95,9 +107,7 @@ CREATE TABLE `Tagmap` (
   `tag_name` varchar(45) NOT NULL,
   PRIMARY KEY (`tagmap_id`),
   KEY `fk_tagmap_item_idx` (`item_id`),
-  KEY `fk_tagmap_tag_idx` (`tag_name`),
-  CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tagmap_tag` FOREIGN KEY (`tag_name`) REFERENCES `Tag` (`tag_name`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_tagmap_item` FOREIGN KEY (`item_id`) REFERENCES `Item` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `Transaction` (

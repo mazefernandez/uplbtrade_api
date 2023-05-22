@@ -9,8 +9,10 @@ var offerCtrl = require('../controllers/offer.js')
 var transactionCtrl = require('../controllers/transaction.js')
 var appReviewCtrl = require('../controllers/application_review.js')
 var customerReviewCtrl = require('../controllers/customer_review.js')
-var reportCtrl = require('../controllers/customer_report.js')
+var reportCustomerCtrl = require('../controllers/customer_report.js')
+var reportItemCtrl = require('../controllers/item_report.js')
 var tagCtrl = require('../controllers/tag.js')
+
 
 //routes for customers
 router.get('/api/customers/:id', customerCtrl.getCustomer)
@@ -73,9 +75,13 @@ router.delete('/api/customer-reviews/:id', customerReviewCtrl.deleteCustomerRevi
 router.get('/api/customer-reviews/customer/:id', customerReviewCtrl.getSpecificCustomerReviews)
 router.get('/api/customer-reviews/rating/:id', customerReviewCtrl.getRating)
 
-//routes for customer reports 
-router.get('/api/customer-reports', reportCtrl.getCustomerReports)
-router.post('/api/customer-reports', reportCtrl.addCustomerReport)
+//routes for customer reports
+router.get('/api/customer-reports', reportCustomerCtrl.getCustomerReports)
+router.post('/api/customer-reports', reportCustomerCtrl.addCustomerReport)
+
+//routes for item reports
+router.get('/api/item-reports', reportItemCtrl.getItemReports)
+router.post('/api/item-reports', reportItemCtrl.addItemReport)
 
 //routes for tags
 router.get('/api/tags', tagCtrl.getTags)
