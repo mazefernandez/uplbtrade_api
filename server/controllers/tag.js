@@ -16,7 +16,7 @@ exports.getTags = (req,res) => {
 }
 
 exports.getTagsFromItem = (req,res) => {
-    connection.query('SELECT tag_name FROM Tagmap where Tagmap.item_id = ?', [req.params.id], function(err, rows, fields) {
+    connection.query('SELECT tag_name FROM Tagmap where item_id = ?', [req.params.id], function(err, rows, fields) {
 		if (!err) {
 		    res.send(rows)
 		    console.log("Retrieved all tags from item")
@@ -44,5 +44,18 @@ exports.addTags = (req,res) => {
         else {
 	    console.log("Error in adding new tagmap " + err)
         }
+    })
+}
+
+exports.deleteTags = (req,res) => {
+    connection.query('DELETE from Tagmap where item_id = ?', [req.params.id], function(err, rows, fields) {
+        if (!err) {
+	    console.log("Deleted Tagmaps")
+	    res.send(null)
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in deleting Tagmaps")
+	}
     })
 }

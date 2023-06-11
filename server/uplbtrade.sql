@@ -98,7 +98,9 @@ CREATE TABLE `Offer` (
 CREATE TABLE `Tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`tag_id`)
+  PRIMARY KEY (`tag_id`),
+  UNIQUE KEY `tag_id_UNIQUE` (`tag_id`),
+  UNIQUE KEY `tag_name_UNIQIE` (`tag_name`)
 );
 
 CREATE TABLE `Tagmap` (

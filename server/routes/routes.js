@@ -33,6 +33,8 @@ router.put('/api/items/:id', itemCtrl.updateItem)
 router.delete('/api/items/:id', itemCtrl.deleteItem)
 
 router.get('/api/items/search/:search', itemCtrl.searchItems)
+router.post('/api/items/tags', itemCtrl.searchItemTags)
+router.post('/api/items/ids', itemCtrl.getItemsByIds)
 
 //routes for offers
 router.get('/api/offers', offerCtrl.getOffers)
@@ -54,7 +56,7 @@ router.get('/api/transactions/seller/:id', transactionCtrl.getSellerTransactions
 router.get('/api/transactions/logs', transactionCtrl.getLogs)
 router.post('/api/transactions', transactionCtrl.addTransaction)
 
-//routes for application reviews 
+//routes for application reviews
 router.get('/api/application-reviews/customers', appReviewCtrl.getReviewCustomers)
 router.get('/api/application-reviews/count', appReviewCtrl.getCount)
 router.get('/api/application-reviews/average', appReviewCtrl.getAverage)
@@ -87,5 +89,6 @@ router.post('/api/item-reports', reportItemCtrl.addItemReport)
 router.get('/api/tags', tagCtrl.getTags)
 router.get('/api/tags/item/:id', tagCtrl.getTagsFromItem)
 router.post('/api/tags', tagCtrl.addTags)
+router.delete('/api/tags/:id', tagCtrl.deleteTags)
 
 module.exports = router
