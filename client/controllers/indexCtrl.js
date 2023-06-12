@@ -24,6 +24,9 @@ admin.config(['$routeProvider', function ($routeProvider) {
 	}).when('/database', {
 		templateUrl : '../html/database.html',
 		controller : 'databaseCtrl'
+	}).when('/items', {
+		templateUrl : '../html/item-reports.html',
+		controller : 'reportItemCtrl'
 	}).otherwise({
 		redirectTo : '/reviews'
 	});

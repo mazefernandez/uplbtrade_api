@@ -100,14 +100,59 @@ exports.deleteItem = (req,res) => {
 exports.searchItems = (req,res) => {
     connection.query('SELECT * FROM Item WHERE Name LIKE ?', ['%' + req.params.search + '%'], function(err,rows,fields) {
         if (!err) {
-		    res.send(rows)
-		    console.log("Searched for items") 
-		}
-		else {
-		    res.send(err)
-		    console.log("Error in searching for items")
-		}
+	    res.send(rows)
+	    console.log("Searched for items") 
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in searching for items")
+	}
     })
 }
 
+exports.searchItemTags = (req,res) => {
+    var values = []
+    var tags = values.concat(req.body)
+
+    var query = 'SELECT DISTINCT item_id from Tagmap WHERE '
+    for (let i=0; i<tags.length; i++) {
+        query = query + 'tag_name = ? OR '
+        values.push(tags[i])
+    }
+    console.log(values)
+    var sql = query.slice(0,-3)
+    connection.query(sql, values, function(err,rows,fields) {
+        if (!err) {
+	    res.send(rows)
+	    console.log(rows)
+	    console.log("Used tags to search for items")
+        }
+	else {
+	    res.send(err)
+	    console.log("Error in using tags to search for items" + err)
+	}
+    })
+}
+
+exports.getItemsByIds = (req,res) => {
+    var values = []
+    var ids = values.concat(req.body)
+
+    var query = 'SELECT * from Item WHERE '
+    for (let i=0; i<ids.length; i++) {
+	query = query + 'item_id = ? OR '
+	values.push(ids[i])
+    }
+    var sql = query.slice(0,-3)
+    connection.query(sql, values, function(err,rows,fields) {
+	if (!err) {
+	    res.send(rows)
+	    console.log("Retrieved the items from tags")
+	}
+	else {
+	    res.send(err)
+	    console.log("Error in retrieving items from tags")
+	}
+    })
+}
 

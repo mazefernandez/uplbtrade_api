@@ -1,9 +1,9 @@
-<header id="title-card">Customer Reports</header>
+<header id="title-card">Item Reports</header>
 <div class="container">
-  <!-- App Reports -->
+  <!-- App Item Reports -->
   <ul id="reviews" class="collection">
     <li class="collection-item" ng-repeat="report in reports track by $index">
-      <span class="customer-name">{{report.reporter.first_name + " " + report.reporter.last_name}}</span> 
+      <span class="customer-name">{{report.reporter.first_name + " " + report.reporter.last_name}}</span>
       <span class="date">
           <i class="tiny material-icons">date_range</i>
           {{report.date | date : 'MMMM d, yyyy h:mm:ss a' : 'Asia/Manila'}}
@@ -11,8 +11,9 @@
       <br>
       <span class="customer-email">{{report.reporter.email}}</span> <br>
       <p class="customer-report"> {{report.message}} </p>
-      <span class="customer-name">{{report.reportee.first_name + " " + report.reportee.last_name}}</span> <br>
-      <span class="customer-email">{{report.reportee.email}}</span>
+      <span class="item-name">{{report.item.name}}</span> <br>
+      <span class="item-desc">{{report.item.description}}</span> <br>
+      <span class="item-id">{{report.item.item_id}}</span> <br>
     </li>
-  </ul>  
+  </ul>
 </div>

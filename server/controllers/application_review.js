@@ -46,7 +46,7 @@ exports.addApplicationReview = (req, res) => {
 		rating : req.body.rating,
 		review : req.body.review,
 		date : require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-		customer_id : req.body.customer_id
+		reviewer_id : req.body.customer_id
 	}
 	connection.query('INSERT INTO Application_Review SET ?', app_review, function(err, rows, fields) {
 		if (!err) {
@@ -56,7 +56,7 @@ exports.addApplicationReview = (req, res) => {
 		}
 		else {
 			res.send(err)
-			console.log("Error in retrieving application reviews " + err)
+			console.log("Error in adding application reviews " + err)
 		}
 	});
 }
@@ -75,7 +75,7 @@ exports.deleteApplicationReview = (req, res) => {
 }
 
 exports.getReviewCustomers = (req,res) => {
-	connection.query('SELECT * FROM Application_Review, Customer where Application_Review.customer_id = Customer.customer_id', [], function(err, rows, fields) {
+	connection.query('SELECT * FROM Application_Review, Customer where Application_Review.reviewer_id = Customer.customer_id', [], function(err, rows, fields) {
 		if (!err) {
 			res.send(rows);
 			console.log("admin retrieve app reviews")

@@ -13,7 +13,7 @@ exports.addItemReport = (req,res) => {
 		if (!err) {
 			item_report.report_id = rows.insertId;
 			res.send(item_report)
-			console.log("Retrieved item report")
+			console.log("Added item report")
 		}
 		else {
 			res.send(err)

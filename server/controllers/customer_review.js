@@ -35,7 +35,7 @@ exports.addCustomerReview = (req, res) => {
 		review : req.body.review,
 		date : require('moment')().format('YYYY-MM-DD HH:mm:ss'),
 		rater_id: req.body.rater_id,
-		customer_id : req.body.customer_id,
+		rated_id : req.body.customer_id,
 		transaction_id: req.body.transaction_id
 	}
 	connection.query('INSERT INTO Customer_Review SET ?', customer_review, function(err, rows, fields) {
