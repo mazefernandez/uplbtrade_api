@@ -13,7 +13,7 @@ CREATE TRIGGER log_transaction AFTER INSERT ON Transaction
 CREATE TRIGGER log_received AFTER INSERT ON Customer_Review
     FOR EACH ROW
     BEGIN
-         INSERT into Transaction_Tracking(status, date, transaction_id) VALUES('Order received', now(), NEW.transaction_id);
+        INSERT into Transaction_Tracking(status, date, transaction_id) VALUES('Order received', now(), NEW.transaction_id);
     END
 //
 
@@ -23,3 +23,4 @@ CREATE TRIGGER insert_tag AFTER INSERT ON Tagmap
 	INSERT ignore into Tag(tag_name) VALUES(NEW.tag_name);
     END
 //
+

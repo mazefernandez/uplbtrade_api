@@ -15,15 +15,15 @@ admin.controller('reportCtrl', ['$scope', '$http', function($scope, $http) {
 				r = response.data;
 				x.reporter = r;
 			})
-			// get the customer who was reported 
-			$http.get('/api/customers/' + x.customer_id).then(function(response) {
+			// get the customer who was reported
+			$http.get('/api/customers/' + x.reportee_id).then(function(response) {
 				c = response.data;
-				x.customer = c;
+				x.reportee = c;
 			})
 			reports.push(x)
 		})
 
-		$scope.reports = reports; 
+		$scope.reports = reports;
 		console.log($scope.reports);
 	})
 }]);

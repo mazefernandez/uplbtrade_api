@@ -20,6 +20,7 @@ router.get('/api/customers', customerCtrl.getCustomers)
 router.get('/api/customers/email/:email', customerCtrl.getCustomerByEmail)
 router.post('/api/customers', customerCtrl.addCustomer)
 router.put('/api/customers/:id', customerCtrl.updateCustomer)
+router.put('/api/customers/rating/:id', customerCtrl.updateRating)
 
 router.get('/api/customers/:id/items', customerCtrl.getCustomerItems)
 router.get('/api/customers/search/:search', customerCtrl.searchCustomerItems)
@@ -55,6 +56,7 @@ router.get('/api/transactions/buyer/:id', transactionCtrl.getBuyerTransactions)
 router.get('/api/transactions/seller/:id', transactionCtrl.getSellerTransactions)
 router.get('/api/transactions/logs', transactionCtrl.getLogs)
 router.post('/api/transactions', transactionCtrl.addTransaction)
+router.post('/api/transactions/cancel/:id', transactionCtrl.cancelTransaction)
 
 //routes for application reviews
 router.get('/api/application-reviews/customers', appReviewCtrl.getReviewCustomers)
@@ -71,7 +73,7 @@ router.get('/api/application-reviews/rating', appReviewCtrl.getRating)
 //routes for customer reviews
 router.get('/api/customer-reviews', customerReviewCtrl.getCustomerReviews)
 router.get('/api/customer-reviews/:id', customerReviewCtrl.getCustomerReview)
-router.post('api/customer-reviews', customerReviewCtrl.addCustomerReview)
+router.post('/api/customer-reviews', customerReviewCtrl.addCustomerReview)
 router.delete('/api/customer-reviews/:id', customerReviewCtrl.deleteCustomerReview)
 
 router.get('/api/customer-reviews/customer/:id', customerReviewCtrl.getSpecificCustomerReviews)

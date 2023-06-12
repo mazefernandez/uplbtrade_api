@@ -31,11 +31,10 @@ CREATE TABLE `Application_Review` (
   `rating` decimal(2,1) DEFAULT '0.0',
   `review` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `reviewer_id` int(11) NOT NULL,
   PRIMARY KEY (`review_id`),
-  UNIQUE KEY `review_id_UNIQUE` (`review_id`),
-  KEY `fk_review_customer_idx` (`customer_id`),
-  CONSTRAINT `fk_review_customer` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `review_customer_idx` (`reviewer_id`),
+  CONSTRAINT `fk_review_customer` FOREIGN KEY (`reviewer_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE `Customer_Report` (
@@ -43,11 +42,11 @@ CREATE TABLE `Customer_Report` (
   `message` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
   `reporter_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `reportee_id` int(11) NOT NULL,
   PRIMARY KEY (`report_id`),
   KEY `fk_report_reporter_idx` (`reporter_id`),
-  KEY `fk_report_customer_idx` (`customer_id`),
-  CONSTRAINT `fk_report_customer` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  KEY `fk_report_customer_idx` (`reportee_id`),
+  CONSTRAINT `fk_report_customer` FOREIGN KEY (`reportee_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_report_reporter` FOREIGN KEY (`reporter_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
@@ -139,13 +138,13 @@ CREATE TABLE `Customer_Review` (
   `review` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
   `rater_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `rated_id` int(11) NOT NULL,
   `transaction_id` int(11) NOT NULL,
   PRIMARY KEY (`customer_review_id`),
   KEY `fk_creview_rater_idx` (`rater_id`),
-  KEY `fk_creview_customer_idx` (`customer_id`),
+  KEY `fk_creview_customer_idx` (`rated_id`),
   KEY `fk_creview_transaction_idx` (`transaction_id`),
-  CONSTRAINT `fk_creview_customer` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_creview_customer` FOREIGN KEY (`rated_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_creview_rater` FOREIGN KEY (`rater_id`) REFERENCES `Customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_creview_transaction` FOREIGN KEY (`transaction_id`) REFERENCES `Transaction` (`transaction_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

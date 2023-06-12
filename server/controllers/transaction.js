@@ -96,3 +96,21 @@ exports.getLogs = (req,res) => {
 		}
 	})
 }
+
+exports.cancelTransaction = (req, res) => {
+	var tracking = {
+        	date: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+	        status: "Order canceled",
+		transaction_id: req.params.id
+	}
+	connection.query("INSERT INTO Transaction_Tracking set ?",tracking, function(err,rows,fields) {
+		if(!err) {
+			res.send(rows[0])
+			console.log("added cancelled transaction")
+		}
+		else {
+			res.send(err)
+			console.log("error cancelling transaction " + err)
+		}
+	})
+}

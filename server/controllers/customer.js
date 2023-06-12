@@ -69,13 +69,26 @@ exports.updateCustomer = (req,res) => {
     }
     connection.query('UPDATE Customer SET address = ?, contact_no = ? where customer_id = ?', [req.body.address, req.body.contact_no, req.params.id], function(err, rows, fields) {
         if (!err) {
-		    res.send(customer)
-	  	    console.log("Updated Customer") 
-		} 
+	    res.send(customer)
+ 	    console.log("Updated Customer") 
+	} 
         else {
-		    console.log("Error in updating customer " + err)
-		    res.send(err)
-		}
+	    console.log("Error in updating customer " + err)
+	    res.send(err)
+	}
+    })
+}
+
+exports.updateRating = (req,res) => {
+    connection.query('UPDATE Customer set overall_rating = SELECT avg(rating) from Customer_Review where rated_id = ?', [req.params.id], function(err, rows,fields) {
+    	if (!err) {
+	    res.send(rows[0])
+	    console.log("Updated Customer Rating")
+	}
+	else {
+	    console.log("Error in updating customer rating" + err)
+	    res.send(err)
+	}
     })
 }
 
