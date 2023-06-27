@@ -83,7 +83,7 @@ exports.updateRating = (req,res) => {
     connection.query('UPDATE Customer set overall_rating = SELECT avg(rating) from Customer_Review where rated_id = ?', [req.params.id], function(err, rows,fields) {
     	if (!err) {
 	    res.send(rows[0])
-	    console.log("Updated Customer Rating")
+	    console.log("Updated Customer Rating" + rows)
 	}
 	else {
 	    console.log("Error in updating customer rating" + err)
